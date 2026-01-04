@@ -1,19 +1,19 @@
 :root {
-    --bg-color: #f0f2f5;
+    --bg-color: #f4f7f6;
     --text-color: #1a1a1a;
     --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.3);
-    --accent-color: #3b82f6;
-    --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    --glass-border: rgba(17, 118, 93, 0.2);
+    --accent-color: #11765d;
+    --card-shadow: 0 8px 32px 0 rgba(17, 118, 93, 0.1);
 }
 
 [data-theme="dark"] {
-    --bg-color: #0f172a;
+    --bg-color: #131314;
     --text-color: #f8fafc;
-    --glass-bg: rgba(30, 41, 59, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --accent-color: #60a5fa;
-    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    --glass-bg: rgba(29, 40, 41, 0.8);
+    --glass-border: rgba(20, 213, 43, 0.2);
+    --accent-color: #14d52b;
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
 }
 
 * {
@@ -29,8 +29,8 @@ body {
     line-height: 1.6;
     transition: background-color 0.5s ease, color 0.5s ease;
     background-image: 
-        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(147, 51, 234, 0.1) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(17, 118, 93, 0.1) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(20, 213, 43, 0.1) 0px, transparent 50%);
     min-height: 100vh;
 }
 
@@ -109,7 +109,7 @@ header {
 }
 
 .coin-front {
-    color: #3b82f6; /* Moon color */
+    color: #11765d; /* Emerald color */
 }
 
 .coin-flipped #theme-coin {
@@ -130,7 +130,7 @@ main {
 h1 {
     font-size: 4rem;
     font-weight: 900;
-    background: linear-gradient(to right, var(--accent-color), #9333ea);
+    background: linear-gradient(to bottom, #858585, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -2px;
@@ -170,8 +170,8 @@ h2 {
     border-radius: 12px;
     font-size: 0.9rem;
     font-weight: 600;
-    background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    background: rgba(17, 118, 93, 0.1);
+    border: 1px solid rgba(17, 118, 93, 0.2);
 }
 
 .project-card {
@@ -185,6 +185,7 @@ h2 {
 
 .project-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(17, 118, 93, 0.2);
 }
 
 .project-card h3 {
