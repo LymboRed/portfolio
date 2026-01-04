@@ -1,0 +1,26 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Ce projet est un portfolio personnel en ligne qui présente mon parcours, mes compétences et mes projets en tant que développeur en reconversion. Ancien étudiant de 42 Paris et manager d'événements, je me forme actuellement aux métiers de développeur Python et data analyst. Ce site met en avant mes compétences techniques, mes projets réalisés, ainsi que mes aspirations professionnelles dans les domaines de la data, de l'IA et de la cybersécurité.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LymboRevas/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/LymboRevas/portfolio/issues"
+  },
+  "homepage": "https://github.com/LymboRevas/portfolio#readme",
+  "devDependencies": {
+    "vite": "^7.3.0"
+  }
+}
