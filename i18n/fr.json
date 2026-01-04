@@ -1,0 +1,42 @@
+{
+    "headerTitle": "Portfolio de Vadzim HASTSIAYEU",
+    "mainTitle": "DEVELOPPEUR",
+    "aboutTitle": "🌍 À propos",
+    "about": {
+        "p1": "Ancien étudiant de 42 Paris (2 piscines). Ancien manager d'événement chez SHAKE à Paris. Je suis en reconversion vers les métiers de développeur Python et data analyst.",
+        "p2": "Je code principalement en Python et en C sous VSCode, mais aussi en SQL et Bash. Je m'intéresse aux domaines de la data, de l'IA et de la cybersécurité.",
+        "p3": "Formé via OpenClassrooms, Udemy, Coursera, edX, et YouTube (TechWorld with Nana, freeCodeCamp.org).",
+        "p4": "Je parle couramment le russe, l'anglais et le français. Mon objectif est de résoudre des problèmes concrets pour les particuliers ou les entreprises et développer une expertise dans ce domaine."
+    },
+    "skillsTitle": "🛠️ Compétences",
+    "projectsTitle": "💻 Mes projets",
+    "projects": [
+        {
+            "title": "🎮 Jeu Pokémon en ligne de commande (Python)",
+            "desc": "Un projet de jeu type Pokémon avec combats, attaques et gestion d’inventaire en ligne de commande, basé sur la POO et les fichiers JSON.",
+            "technosLabel": "Technos:"
+        },
+        {
+            "title": "📝 MadLibs en interface graphique",
+            "desc": "Création d'un jeu MadLibs avec interface utilisateur en Tkinter, vérification des champs et sauvegarde.",
+            "technosLabel": "Technos:"
+        },
+        {
+            "title": "📊 Sauvegarde de données multi-formats",
+            "desc": "Programme qui collecte les données utilisateur et les sauvegarde au choix en CSV, PDF ou TXT.",
+            "technosLabel": "Technos:"
+        },
+        {
+            "title": "✍️ Création d'un portfolio en ligne",
+            "desc": "Mon premier portfolio personnel avec apprentissage de HTML, CSS, JS et déploiement via GitHub.",
+            "technosLabel": "Technos:"
+        },
+        {
+            "title": "👨‍💻 Création d'une application Task-App",
+            "desc": "Application de gestion de tâches avec base SQLite, déployée avec Docker.",
+            "technosLabel": "Technos:"
+        }
+    ],
+    "contact": "📫 Contact :",
+    "github": "Voir mon GitHub"
+}

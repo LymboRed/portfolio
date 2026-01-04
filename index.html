@@ -1,49 +1,125 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio de Lymbo Revas</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <title>Vadzim Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Vadzim aka Lymbo Revas</h1>
-    <p>Développeur Python | Data | Cybersécurité</p>
-  </header>
+    <header>
+        <div class="logo">LYMBO</div>
+        <p id="header-title" data-i18n="headerTitle">Portfolio de Vadzim</p>
+        <div id="language-switcher">
+            <button data-lang="fr" title="Français">🇫🇷</button>
+            <button data-lang="en" title="English">🇬🇧</button>
+            <button data-lang="ru" title="Русский">🇷🇺</button>
+        </div> 
+        <div id="theme-switch-wrapper">
+            <div id="theme-coin">
+                <div class="coin-face coin-front">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="coin-face coin-back">
+                    <i class="fas fa-sun"></i>
+                </div>
+            </div>
+        </div>
+    </header>
 
-  <section id="about">
-    <h2>À propos</h2>
-    <p>Ancien étudiant de 42 Paris (2 piscines). Ancien manager d'événement chez SHAKE à Paris. Je suis en reconversion vers les métiers de développeur Python et data analyst.</p>
-    <p>Je code principalement en Python et en C sous VSCode, mais aussi en SQL et Bash. Je m'intéresse aux domaines de la data, de l'IA et de la cybersécurité.</p>
-    <p>Formé via OpenClassrooms, Udemy, Coursera, edX, et YouTube (TechWorld with Nana, freeCodeCamp.org).</p>
-    <p>Je parle couramment le russe, l'anglais et le français. Mon objectif est de résoudre des problèmes concrets pour les particuliers ou les entreprises et développer une expertise dans ce domaine.</p>
-  </section>
+    <main>
+        <div class="title-section">
+            <h1 id="main-title" data-i18n="mainTitle">DEVELOPPEUR</h1>
+        </div>
+        <div class="main-container">
+            <div class="left-container">
+                <section id="about">
+                <h2 data-i18n="aboutTitle">🌍 À propos</h2>
+                <p id="about-p1" data-i18n="about.p1">Ancien étudiant de 42 Paris (2 piscines). Ancien manager d'événement chez SHAKE à Paris. Je suis en reconversion vers les métiers de développeur Python et data analyst.</p>
+                <p id="about-p2" data-i18n="about.p2">J'utilise multiple technologies : Python, C, Docker, Html, CSS sous VSCode, mais aussi  SQL/noSQL et Bash. Je m'intéresse aux domaines de la data, de l'IA et de la cybersécurité.</p>
+                <p id="about-p3" data-i18n="about.p3">Formé via OpenClassrooms, Udemy, Coursera, edX, et YouTube (TechWorld with Nana, freeCodeCamp.org).</p>
+                <p id="about-p4" data-i18n="about.p4">Je parle couramment le russe, l'anglais et le français. Mon objectif est de résoudre des problèmes concrets pour les particuliers ou les entreprises et développer une expertise dans ce domaine.</p>
+                </section>
+            
+                <section id="skills">
+                <h2 data-i18n="skillsTitle">🛠️ Compétences</h2>
+                <div class="skills-list">
+                    <span class="badge badge-python">Python</span>
+                    <span class="badge badge-sql">SQL</span>
+                    <span class="badge badge-nosql">noSQL</span>
+                    <span class="badge badge-git">Git</span>
+                    <span class="badge badge-c">C</span>
+                    <span class="badge badge-docker">Docker</span>
+                    <span class="badge badge-html">Html</span>
+                    <span class="badge badge-css">Css</span>
+                    <span class="badge badge-javascript">JavaScript</span>
+                    <span class="badge badge-bash">Bash</span>
+                </div>
+                </section>
+            </div>
 
-  <section id="projects">
-    <h2>Mes projets</h2>
-    <article>
-      <h3>🎮 Jeu Pokémon en ligne de commande (Python)</h3>
-      <p>Un projet de jeu type Pokémon avec combats, attaques et gestion d’inventaire en ligne de commande, basé sur la POO et les fichiers JSON.</p>
-      <p><strong>Technos :</strong> Python, POO, JSON</p>
-    </article>
+            <div class="right-container">
+                <section id="projects">
+                    <h2 data-i18n="projectsTitle">💻 Mes projets</h2>
+                    <div class="projects-carousel">
+                        <article class="project-card" data-aos="fade-up">
+                            <h3 data-i18n="projects.0.title">🎮 Jeu Pokémon en ligne de commande</h3>
+                            <p data-i18n="projects.0.desc">Un projet de jeu type Pokémon avec combats, attaques et gestion d’inventaire en ligne de commande, basé sur la POO et les fichiers JSON.</p>
+                            <p><strong class="technos-label" data-i18n="projects.0.technosLabel">Technos :</strong> Python, POO, JSON</p>
+                        </article>
+                        <article class="project-card" data-aos="fade-up">
+                            <h3 data-i18n="projects.1.title">📝 MadLibs en interface graphique</h3>
+                            <p data-i18n="projects.1.desc">Création d'un jeu MadLibs avec interface utilisateur en Tkinter, vérification des champs et sauvegarde.</p>
+                            <p><strong class="technos-label" data-i18n="projects.1.technosLabel">Technos :</strong> Python, Tkinter</p>
+                        </article>
+                        <article class="project-card" data-aos="fade-up">
+                            <h3 data-i18n="projects.2.title">📊 Sauvegarde de données multi-formats</h3>
+                            <p data-i18n="projects.2.desc">Programme qui collecte les données utilisateur et les sauvegarde au choix en CSV, PDF ou TXT.</p>
+                            <p><strong class="technos-label" data-i18n="projects.2.technosLabel">Technos :</strong> Python, CSV, FPDF</p>
+                        </article>
+                        <article class="project-card" data-aos="fade-up">
+                            <h3 data-i18n="projects.3.title">✍️ Création d'un portfolio en ligne</h3>
+                            <p data-i18n="projects.3.desc">Mon premier portfolio sur moi-même qui m'a permis d'apprendre Html, CSS et JavaScript, ainsi que le déployement en ligne grâce à GitHub.</p>
+                            <p><strong class="technos-label" data-i18n="projects.3.technosLabel">Technos :</strong> Html, CSS, JavaScript</p>
+                        </article>
+                        <article class="project-card" data-aos="fade-up">
+                            <h3 data-i18n="projects.4.title">👨‍💻 Création d'une application Task-App</h3>
+                            <p data-i18n="projects.4.desc">Un petit projet task-app, à l'aide d'une base de donnée local (SQLite) avec Python, déployement grâce à Docker (dockerfile, docker compose, docker build etc..).</p>
+                            <p><strong class="technos-label" data-i18n="projects.4.technosLabel">Technos :</strong> Python, Docker, SQLite, GitHub</p>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </div>
 
-    <article>
-      <h3>📝 MadLibs en interface graphique</h3>
-      <p>Création d'un jeu MadLibs avec interface utilisateur en Tkinter, vérification des champs et sauvegarde.</p>
-      <p><strong>Technos :</strong> Python, Tkinter</p>
-    </article>
+    </main>
 
-    <article>
-      <h3>📊 Sauvegarde de données multi-formats</h3>
-      <p>Programme qui collecte les données utilisateur et les sauvegarde au choix en CSV, PDF ou TXT.</p>
-      <p><strong>Technos :</strong> Python, CSV, FPDF</p>
-    </article>
-  </section>
+    <footer>
+        <p>&copy; 2025 Mon Portfolio</p>
+        <p id="contact-line">
+            <span data-i18n="contact">📫 Contact :</span> <a href="mailto:vadzimhast@hotmail.com">vadzimhast@hotmail.com</a>
+        </p>
+        <p id="github-line">
+            <a href="https://github.com/LymboRevas" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github" aria-hidden="true"></i>
+                <span id="github-text" data-i18n="github">Voir mon GitHub</span>
+            </a>
+        </p>
+    </footer>
+    
+    <script src="script.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
 
-  <footer>
-    <p>📫 Contact : <a href="mailto:vhastpro@gmail.com">lymborevas@gmail.com</a></p>
-    <p>🔗 <a href="https://github.com/LymboRevas" target="_blank">Mon GitHub</a></p>
-  </footer>
 </body>
 </html>

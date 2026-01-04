@@ -1,0 +1,42 @@
+{
+    "headerTitle": "Portfolio of Vadzim HASTSIAYEU",
+    "mainTitle": "DEVELOPER",
+    "aboutTitle": "🌍 About",
+    "about": {
+        "p1": "Former student at 42 Paris (2 Piscines). Former event manager at SHAKE in Paris. I'm transitioning into software development and data analysis.",
+        "p2": "I mainly code in Python and C using VSCode, as well as SQL and Bash. I'm passionate about data, AI, and cybersecurity.",
+        "p3": "Trained via OpenClassrooms, Udemy, Coursera, edX, and YouTube (TechWorld with Nana, freeCodeCamp.org).",
+        "p4": "I speak Russian, English, and French fluently. My goal is to solve real-world problems for individuals or companies and grow my expertise."
+    },
+    "skillsTitle": "🛠️ Skills",
+    "projectsTitle": "💻 My Projects",
+    "projects": [
+        {
+            "title": "🎮 Command Line Pokémon Game (Python)",
+            "desc": "A Pokémon-style game with combat, attacks, and inventory management, built using OOP and JSON files.",
+            "technosLabel": "Tech stack:"
+        },
+        {
+            "title": "📝 MadLibs GUI",
+            "desc": "MadLibs game with GUI using Tkinter, input validation, and saving functionality.",
+            "technosLabel": "Tech stack:"
+        },
+        {
+            "title": "📊 Multi-format Data Saver",
+            "desc": "Program that collects user data and saves it in CSV, PDF, or TXT format.",
+            "technosLabel": "Tech stack:"
+        },
+        {
+            "title": "✍️ Creating an Online Portfolio",
+            "desc": "My first personal portfolio built while learning HTML, CSS, and JS, and deployed via GitHub.",
+            "technosLabel": "Tech stack:"
+        },
+        {
+            "title": "👨‍💻 Task-App Creation",
+            "desc": "Task management application with SQLite database, deployed using Docker.",
+            "technosLabel": "Tech stack:"
+        }
+    ],
+    "contact": "📫 Contact:",
+    "github": "View my GitHub"
+}
