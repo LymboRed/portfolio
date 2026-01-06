@@ -1,3 +1,47 @@
+// Matrix Loader Logic
+function initMatrixLoader() {
+    const container = document.getElementById('matrix-canvas-container');
+    const columns = Math.floor(window.innerWidth / 20);
+    
+    for (let i = 0; i < columns; i++) {
+        const column = document.createElement('div');
+        column.className = 'matrix-column';
+        column.style.left = `${i * 20}px`;
+        column.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        column.style.animationDelay = `${Math.random() * 5}s`;
+        
+        // Random binary string
+        let binary = '';
+        for (let j = 0; j < 50; j++) {
+            binary += Math.round(Math.random());
+        }
+        column.innerText = binary;
+        container.appendChild(column);
+    }
+
+    // Progress Simulation
+    let progress = 0;
+    const progressBar = document.getElementById('loader-progress');
+    const percentageText = document.getElementById('loader-percentage');
+    const loader = document.getElementById('matrix-loader');
+
+    const interval = setInterval(() => {
+        progress += Math.random() * 10;
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(interval);
+            setTimeout(() => {
+                loader.classList.add('loader-hidden');
+            }, 500);
+        }
+        progressBar.style.width = `${progress}%`;
+        percentageText.innerText = `${Math.floor(progress)}%`;
+    }, 100);
+}
+
+// Initialize loader on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', initMatrixLoader);
+
 // Console greeting
 console.log("%c> LYMBO_OS v2.0.42 INITIALIZED", "color: #00ff41; font-weight: bold; font-size: 14px;");
 console.log("%c> SYSTEM STATUS: ONLINE", "color: #00ff41;");

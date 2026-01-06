@@ -49,6 +49,89 @@ body::before {
     pointer-events: none;
 }
 
+/* Matrix Loader */
+#matrix-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent-color);
+    font-family: var(--font-mono);
+    transition: opacity 1s ease-out, visibility 1s;
+}
+
+#matrix-canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    overflow: hidden;
+}
+
+.matrix-column {
+    position: absolute;
+    top: -20px;
+    font-size: 14px;
+    line-height: 1;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    animation: matrix-fall linear infinite;
+}
+
+@keyframes matrix-fall {
+    to {
+        transform: translateY(110vh);
+    }
+}
+
+#loader-status {
+    z-index: 1;
+    text-align: center;
+    width: 300px;
+}
+
+.status-text {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 255, 65, 0.1);
+    border: 1px solid var(--accent-color);
+    margin-bottom: 10px;
+}
+
+#loader-progress {
+    width: 0%;
+    height: 100%;
+    background: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+    transition: width 0.1s ease;
+}
+
+#loader-percentage {
+    font-size: 0.8rem;
+}
+
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 header {
     display: flex;
     justify-content: space-between;
