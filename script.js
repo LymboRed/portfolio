@@ -40,7 +40,18 @@ function initMatrixLoader() {
 }
 
 // Initialize loader on DOMContentLoaded
-document.addEventListener('DOMContentLoaded', initMatrixLoader);
+document.addEventListener('DOMContentLoaded', () => {
+    initMatrixLoader();
+    
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('> PWA_SERVICE_WORKER: REGISTERED'))
+                .catch(err => console.log('> PWA_SERVICE_WORKER: FAILED_TO_LINK', err));
+        });
+    }
+});
 
 // Console greeting
 console.log("%c> LYMBO_OS v2.0.42 INITIALIZED", "color: #00ff41; font-weight: bold; font-size: 14px;");
