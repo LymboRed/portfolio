@@ -125,6 +125,25 @@ updateLanguage('fr');
 const themeSwitch = document.getElementById('theme-switch-wrapper');
 const body = document.body;
 
+// QR Code Logic
+const logo = document.querySelector('.logo');
+const qrModal = document.getElementById('qr-modal');
+const qrCodeContainer = document.getElementById('qr-code');
+const closeQr = document.getElementById('close-qr');
+
+logo.addEventListener('click', () => {
+    const currentUrl = window.location.href;
+    qrCodeContainer.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentUrl)}" alt="QR Code">`;
+    qrModal.style.display = 'flex';
+    console.log("> GENERATING_ACCESS_LINK...");
+});
+
+qrModal.addEventListener('click', (e) => {
+    if (e.target === qrModal || e.target === closeQr) {
+        qrModal.style.display = 'none';
+    }
+});
+
 // Check for saved theme
 const savedTheme = localStorage.getItem('theme') || 'light';
 body.setAttribute('data-theme', savedTheme);
