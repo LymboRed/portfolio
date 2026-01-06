@@ -32,6 +32,12 @@ function initMatrixLoader() {
             clearInterval(interval);
             setTimeout(() => {
                 loader.classList.add('loader-hidden');
+                // Fallback in case CSS is not loading
+                setTimeout(() => {
+                    if (window.getComputedStyle(loader).opacity !== "0") {
+                        loader.style.display = 'none';
+                    }
+                }, 1100);
             }, 500);
         }
         progressBar.style.width = `${progress}%`;
