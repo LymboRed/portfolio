@@ -83,8 +83,13 @@ body::before {
     font-size: 14px;
     line-height: 1;
     writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
     text-orientation: upright;
+    -webkit-text-orientation: upright;
     animation: matrix-fall linear infinite;
+    -webkit-animation: matrix-fall linear infinite;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 @keyframes matrix-fall {
@@ -153,6 +158,7 @@ header {
     letter-spacing: 4px;
     color: var(--accent-color);
     text-shadow: 2px 2px var(--secondary-accent);
+    -webkit-text-stroke: 0.5px var(--accent-color);
 }
 
 #language-switcher {

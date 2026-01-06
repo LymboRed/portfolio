@@ -26,23 +26,31 @@ function initMatrixLoader() {
     const loader = document.getElementById('matrix-loader');
 
     const interval = setInterval(() => {
-        progress += Math.random() * 10;
+        progress += Math.random() * 15; // Faster simulation
         if (progress >= 100) {
             progress = 100;
             clearInterval(interval);
             setTimeout(() => {
                 loader.classList.add('loader-hidden');
-                // Fallback in case CSS is not loading
+                // Absolute fallback for Safari/older browsers
                 setTimeout(() => {
-                    if (window.getComputedStyle(loader).opacity !== "0") {
-                        loader.style.display = 'none';
-                    }
-                }, 1100);
+                    loader.style.display = 'none';
+                    loader.style.opacity = '0';
+                    loader.style.pointerEvents = 'none';
+                }, 1000);
             }, 500);
         }
-        progressBar.style.width = `${progress}%`;
-        percentageText.innerText = `${Math.floor(progress)}%`;
-    }, 100);
+        if (progressBar) progressBar.style.width = `${progress}%`;
+        if (percentageText) percentageText.innerText = `${Math.floor(progress)}%`;
+    }, 80);
+
+    // Hard emergency timeout: Remove loader after 5 seconds no matter what
+    setTimeout(() => {
+        if (loader && loader.style.display !== 'none') {
+            loader.classList.add('loader-hidden');
+            setTimeout(() => { loader.style.display = 'none'; }, 1000);
+        }
+    }, 5000);
 }
 
 // Initialize loader on DOMContentLoaded
