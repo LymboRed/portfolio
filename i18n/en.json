@@ -1,42 +1,42 @@
 {
-    "headerTitle": "Portfolio of Vadzim HASTSIAYEU",
-    "mainTitle": "DEVELOPER",
-    "aboutTitle": "🌍 About",
+    "headerTitle": "VADZIM H. // RED_PROTOCOLS",
+    "mainTitle": "AI_ENGINEER",
+    "aboutTitle": ">> [LOAD_ABOUT]",
     "about": {
-        "p1": "Former student at 42 Paris (2 Piscines). Former event manager at SHAKE in Paris. I'm transitioning into software development and data analysis.",
-        "p2": "I mainly code in Python and C using VSCode, as well as SQL and Bash. I'm passionate about data, AI, and cybersecurity.",
-        "p3": "Trained via OpenClassrooms, Udemy, Coursera, edX, and YouTube (TechWorld with Nana, freeCodeCamp.org).",
-        "p4": "I speak Russian, English, and French fluently. My goal is to solve real-world problems for individuals or companies and grow my expertise."
+        "p1": "Systems Architect and former 42 Paris operative. Specialized in high-efficiency Python engineering and data lifecycle management.",
+        "p2": "Proficient in low-level C architecture, Docker containerization, and SQL/NoSQL data schemas. Focused on AI infrastructure and security protocols.",
+        "p3": "Continuous learning via OpenClassrooms, Udemy, Coursera, edX, and community-driven knowledge bases like freeCodeCamp.",
+        "p4": "Trilingual Specialist: RU | EN | FR. Dedicated to optimizing complex systems and building scalable tech solutions for global entities."
     },
-    "skillsTitle": "🛠️ Skills",
-    "projectsTitle": "💻 My Projects",
+    "skillsTitle": ">> [SKILLS_MATRIX]",
+    "projectsTitle": ">> [ACTIVE_NODES]",
     "projects": [
         {
-            "title": "🎮 Command Line Pokémon Game (Python)",
-            "desc": "A Pokémon-style game with combat, attacks, and inventory management, built using OOP and JSON files.",
-            "technosLabel": "Tech stack:"
+            "title": "Simulation: Pokémon OS (Python)",
+            "desc": "Architected a CLI-based combat engine utilizing OOP principles and state management via JSON protocols.",
+            "technosLabel": "CORE_TECH:"
         },
         {
-            "title": "📝 MadLibs GUI",
-            "desc": "MadLibs game with GUI using Tkinter, input validation, and saving functionality.",
-            "technosLabel": "Tech stack:"
+            "title": "Interface: MadLibs GUI",
+            "desc": "Front-end interface development using Tkinter for data input validation and persistent storage logic.",
+            "technosLabel": "CORE_TECH:"
         },
         {
-            "title": "📊 Multi-format Data Saver",
-            "desc": "Program that collects user data and saves it in CSV, PDF, or TXT format.",
-            "technosLabel": "Tech stack:"
+            "title": "Protocol: Data Saver",
+            "desc": "Built a multi-format export pipeline for data serialization in CSV, PDF, and TXT environments.",
+            "technosLabel": "CORE_TECH:"
         },
         {
-            "title": "✍️ Creating an Online Portfolio",
-            "desc": "My first personal portfolio built while learning HTML, CSS, and JS, and deployed via GitHub.",
-            "technosLabel": "Tech stack:"
+            "title": "System: Portfolio Core",
+            "desc": "Custom-built holographic web interface with high-performance CSS and internationalization architecture.",
+            "technosLabel": "CORE_TECH:"
         },
         {
-            "title": "👨‍💻 Task-App Creation",
-            "desc": "Task management application with SQLite database, deployed using Docker.",
-            "technosLabel": "Tech stack:"
+            "title": "Node: Task-App Deployment",
+            "desc": "Containerized SQLite management application deployed via Docker Compose for localized data isolation.",
+            "technosLabel": "CORE_TECH:"
         }
     ],
-    "contact": "📫 Contact:",
-    "github": "View my GitHub"
+    "contact": ">> [TARGET_COMMS]:",
+    "github": "DOWNLOAD_GIT_REPO"
 }

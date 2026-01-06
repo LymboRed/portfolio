@@ -1,3 +1,8 @@
+// Console greeting
+console.log("%c> LYMBO_OS v2.0.42 INITIALIZED", "color: #00ff41; font-weight: bold; font-size: 14px;");
+console.log("%c> SYSTEM STATUS: ONLINE", "color: #00ff41;");
+console.log("%c> UNAUTHORIZED ACCESS DETECTED... ACCESS GRANTED", "color: #ff003c;");
+
 const langButtons = document.querySelectorAll('#language-switcher button');
 let translations = {};
 
@@ -15,6 +20,7 @@ async function loadTranslations(lang) {
 langButtons.forEach(btn => {
     btn.addEventListener('click', async () => {
         const lang = btn.dataset.lang;
+        console.log(`> SWITCHING LANGUAGE TO: ${lang.toUpperCase()}`);
         if (!translations[lang]) {
             await loadTranslations(lang);
         }
@@ -40,6 +46,10 @@ async function updateLanguage(lang) {
                 el.placeholder = translation;
             } else {
                 el.textContent = translation;
+                // Update data-text for glitch effect if it's the main title
+                if (el.id === 'main-title') {
+                    el.setAttribute('data-text', translation);
+                }
             }
         }
     });
