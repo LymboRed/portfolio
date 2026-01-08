@@ -72,6 +72,71 @@ console.log("%c> LYMBO_OS v2.0.42 INITIALIZED", "color: #00ff41; font-weight: bo
 console.log("%c> SYSTEM STATUS: ONLINE", "color: #00ff41;");
 console.log("%c> UNAUTHORIZED ACCESS DETECTED... ACCESS GRANTED", "color: #ff003c;");
 
+// Sound Manager (Web Audio API)
+const SoundManager = {
+    ctx: null,
+    enabled: localStorage.getItem('audio_enabled') !== 'false',
+    
+    init() {
+        if (!this.ctx) {
+            this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+    },
+
+    playUI(frequency = 440, type = 'sine', duration = 0.1) {
+        if (!this.enabled) return;
+        this.init();
+        
+        try {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            
+            osc.type = type;
+            osc.frequency.setValueAtTime(frequency, this.ctx.currentTime);
+            
+            gain.gain.setValueAtTime(0.05, this.ctx.currentTime); // Low volume
+            gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + duration);
+            
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            
+            osc.start();
+            osc.stop(this.ctx.currentTime + duration);
+        } catch (e) { console.warn("Audio Context blocked"); }
+    },
+
+    click() { this.playUI(800, 'square', 0.05); },
+    beep() { this.playUI(400, 'sine', 0.08); },
+    glitch() { this.playUI(150, 'sawtooth', 0.1); }
+};
+
+// Initialize Audio & Hover Listeners
+document.addEventListener('DOMContentLoaded', () => {
+    const audioToggle = document.getElementById('audio-toggle');
+    if (audioToggle) {
+        if (!SoundManager.enabled) {
+            audioToggle.classList.add('muted');
+            audioToggle.querySelector('i').className = 'fas fa-volume-mute';
+        }
+
+        audioToggle.addEventListener('click', () => {
+            SoundManager.enabled = !SoundManager.enabled;
+            localStorage.setItem('audio_enabled', SoundManager.enabled);
+            audioToggle.classList.toggle('muted');
+            
+            const icon = audioToggle.querySelector('i');
+            icon.className = SoundManager.enabled ? 'fas fa-volume-up' : 'fas fa-volume-mute';
+            
+            if (SoundManager.enabled) SoundManager.click();
+        });
+    }
+
+    // Attach sounds to global hover elements
+    document.querySelectorAll('.project-card, .badge, #language-switcher button, #theme-switch-wrapper').forEach(el => {
+        el.addEventListener('mouseenter', () => SoundManager.beep());
+    });
+});
+
 const langButtons = document.querySelectorAll('#language-switcher button');
 let translations = {};
 
@@ -88,6 +153,7 @@ async function loadTranslations(lang) {
 
 langButtons.forEach(btn => {
     btn.addEventListener('click', async () => {
+        SoundManager.click();
         const lang = btn.dataset.lang;
         console.log(`> SWITCHING LANGUAGE TO: ${lang.toUpperCase()}`);
         if (!translations[lang]) {
@@ -146,6 +212,7 @@ const qrCodeContainer = document.getElementById('qr-code');
 const closeQr = document.getElementById('close-qr');
 
 logo.addEventListener('click', () => {
+    SoundManager.glitch();
     const currentUrl = window.location.href;
     qrCodeContainer.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentUrl)}" alt="QR Code">`;
     qrModal.style.display = 'flex';
@@ -154,6 +221,7 @@ logo.addEventListener('click', () => {
 
 qrModal.addEventListener('click', (e) => {
     if (e.target === qrModal || e.target === closeQr) {
+        SoundManager.click();
         qrModal.style.display = 'none';
     }
 });
@@ -166,6 +234,7 @@ if (savedTheme === 'dark') {
 }
 
 themeSwitch.addEventListener('click', () => {
+    SoundManager.glitch();
     const currentTheme = body.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
