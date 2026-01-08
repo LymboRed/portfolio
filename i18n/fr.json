@@ -40,5 +40,14 @@
     "contact": ">> [TARGET_COMMS] :",
     "contactTitle": "🧠 ÉTABLIR_LIEN_NEURAL",
     "github": "DOWNLOAD_GIT_REPO",
-    "statsTitle": "📊 DASHBOARD_ANALYTIQUE"
+    "statsTitle": "📊 DASHBOARD_ANALYTIQUE",
+    "classic": {
+        "headerTitle": "Vadzim H. | Développeur Python & Data Analyst",
+        "mainTitle": "DÉVELOPPEUR FULLSTACK",
+        "aboutTitle": "À Propos",
+        "skillsTitle": "Mes Compétences",
+        "projectsTitle": "Mes Projets",
+        "contactTitle": "Me Contacter",
+        "statsTitle": "Statistiques GitHub"
+    }
 }

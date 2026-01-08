@@ -196,10 +196,15 @@ async function updateLanguage(lang) {
     document.body.dataset.lang = lang;
     document.documentElement.lang = lang;
     
+    const isClassic = document.body.classList.contains('classic-mode');
+    
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
-        const translation = getNestedValue(translations[lang], key);
+        
+        // Try to get classic translation first if in classic mode
+        let translation = isClassic ? getNestedValue(translations[lang], `classic.${key}`) : null;
+        if (!translation) translation = getNestedValue(translations[lang], key);
         
         if (translation) {
             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
@@ -290,6 +295,10 @@ styleSwitch.addEventListener('click', () => {
     localStorage.setItem('portfolio_style', newStyle);
     
     console.log(`> SWITCHING_INTERFACE_MODE: ${newStyle.toUpperCase()}`);
+    
+    // Refresh language to apply classic/cyber titles
+    const currentLang = document.body.dataset.lang || 'fr';
+    updateLanguage(currentLang);
     
     // Trigger theme change event to update 3D brain colors to new classic accent
     setTimeout(() => {

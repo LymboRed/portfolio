@@ -35,7 +35,8 @@ body.classic-mode * {
 
 /* Hide OS-specific effects in Classic Mode */
 body.classic-mode::before, 
-body.classic-mode .terminal-overlay {
+body.classic-mode .terminal-overlay,
+body.classic-mode section::before {
     display: none !important;
 }
 
@@ -45,10 +46,16 @@ body.classic-mode header {
     background: var(--bg-color);
 }
 
-body.classic-mode .logo {
-    text-shadow: none;
-    -webkit-text-stroke: 0;
+body.classic-mode h1::before,
+body.classic-mode h1::after {
+    display: none !important;
+}
+
+body.classic-mode h1 {
+    font-size: 3.5rem;
     letter-spacing: normal;
+    background: none;
+    -webkit-text-fill-color: var(--accent-color);
 }
 
 body.classic-mode #terminal-toggle {
