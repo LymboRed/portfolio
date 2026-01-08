@@ -264,6 +264,19 @@ main {
 .title-section {
     text-align: center;
     margin-bottom: 4rem;
+    position: relative;
+}
+
+#hologram-container {
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+    cursor: grab;
+    filter: drop-shadow(0 0 15px var(--accent-color));
+}
+
+#hologram-container:active {
+    cursor: grabbing;
 }
 
 h1 {

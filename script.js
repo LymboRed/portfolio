@@ -269,6 +269,8 @@ themeSwitch.addEventListener('click', () => {
     setTimeout(() => {
         body.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
+        // Notify other modules of theme change
+        document.body.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: newTheme } }));
     }, 300);
 });
 // --- Terminal CLI Logic ---
@@ -457,6 +459,182 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- Neural Link Logic ---
+const HologramManager = {
+    init() {
+        this.container = document.getElementById('hologram-container');
+        if (!this.container) return;
+
+        this.scene = new THREE.Scene();
+        this.camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        this.camera.position.z = 15;
+
+        this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.container.appendChild(this.renderer.domElement);
+
+        this.particles = null;
+        this.createBrain();
+        this.animate();
+
+        window.addEventListener('resize', () => this.onResize());
+        
+        // Drag interactivity
+        this.isDragging = false;
+        this.previousMousePosition = { x: 0, y: 0 };
+
+        this.container.addEventListener('mousedown', (e) => {
+            this.isDragging = true;
+        });
+
+        window.addEventListener('mouseup', () => {
+            this.isDragging = false;
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            const currentMouse = { x: e.clientX, y: e.clientY };
+            if (this.isDragging && this.particles) {
+                const deltaMove = {
+                    x: currentMouse.x - this.previousMousePosition.x,
+                    y: currentMouse.y - this.previousMousePosition.y
+                };
+
+                this.particles.rotation.y += deltaMove.x * 0.01;
+                this.particles.rotation.x += deltaMove.y * 0.01;
+            }
+            this.previousMousePosition = currentMouse;
+        });
+
+        // Update color on theme change
+        document.body.addEventListener('themeChanged', () => {
+            this.updateColors();
+        });
+    },
+
+    updateColors() {
+        if (!this.particles) return;
+        const accentColor = new THREE.Color(getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim() || '#00ff41');
+        const colors = this.particles.geometry.attributes.color.array;
+        
+        for (let i = 0; i < colors.length / 3; i++) {
+            const mixedColor = accentColor.clone().lerp(new THREE.Color('#ffffff'), Math.random() * 0.3);
+            colors[i * 3] = mixedColor.r;
+            colors[i * 3 + 1] = mixedColor.g;
+            colors[i * 3 + 2] = mixedColor.b;
+        }
+        this.particles.geometry.attributes.color.needsUpdate = true;
+    },
+
+    createBrain() {
+        const particleCount = 2500;
+        const geometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleCount * 3);
+        const colors = new Float32Array(particleCount * 3);
+
+        const accentColor = new THREE.Color(getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim() || '#00ff41');
+
+        for (let i = 0; i < particleCount; i++) {
+            // Brain-like shape using two spheres/hemispheres with noise
+            const phi = Math.random() * Math.PI * 2;
+            const theta = Math.random() * Math.PI;
+            
+            const r = 5 + Math.random() * 1.5;
+            let x = r * Math.sin(theta) * Math.cos(phi) * 1.3;
+            let y = r * Math.sin(theta) * Math.sin(phi) * 0.9;
+            let z = r * Math.cos(theta) * 0.8;
+
+            // Fold distortion
+            const angle = Math.atan2(y, x);
+            const dist = Math.sqrt(x*x + y*y);
+            const fold = Math.sin(dist * 1.2) * 0.5;
+            x += Math.cos(angle) * fold;
+            y += Math.sin(angle) * fold;
+
+            // Hemisphere split
+            if (x > 0) x += 0.4;
+            else x -= 0.4;
+
+            positions[i * 3] = x;
+            positions[i * 3 + 1] = y;
+            positions[i * 3 + 2] = z;
+
+            const mixedColor = accentColor.clone().lerp(new THREE.Color('#ffffff'), Math.random() * 0.4);
+            colors[i * 3] = mixedColor.r;
+            colors[i * 3 + 1] = mixedColor.g;
+            colors[i * 3 + 2] = mixedColor.b;
+        }
+
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+        const material = new THREE.PointsMaterial({
+            size: 0.08,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0, // Start invisible for entry animation
+            blending: THREE.AdditiveBlending
+        });
+
+        this.particles = new THREE.Points(geometry, material);
+        this.scene.add(this.particles);
+
+        // Neural web connections
+        const lineMaterial = new THREE.LineBasicMaterial({ 
+            color: accentColor, 
+            transparent: true, 
+            opacity: 0.1 
+        });
+        
+        for(let i = 0; i < 60; i++) {
+            const p1 = Math.floor(Math.random() * particleCount);
+            const p2 = Math.floor(Math.random() * particleCount);
+            const lineGeometry = new THREE.BufferGeometry().setFromPoints([
+                new THREE.Vector3(positions[p1*3], positions[p1*3+1], positions[p1*3+2]),
+                new THREE.Vector3(positions[p2*3], positions[p2*3+1], positions[p2*3+2])
+            ]);
+            const line = new THREE.Line(lineGeometry, lineMaterial);
+            this.particles.add(line);
+        }
+
+        // Fade in animation
+        let opacity = 0;
+        const fadeIn = setInterval(() => {
+            opacity += 0.05;
+            this.particles.material.opacity = opacity;
+            if (opacity >= 0.8) clearInterval(fadeIn);
+        }, 50);
+    },
+
+    onResize() {
+        if (!this.container) return;
+        this.camera.aspect = 1;
+        this.camera.updateProjectionMatrix();
+        this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+    },
+
+    animate() {
+        requestAnimationFrame(() => this.animate());
+
+        if (this.particles) {
+            this.particles.rotation.y += 0.005;
+            this.particles.rotation.x += 0.002;
+            
+            // Subtle "breathing" effect
+            const time = Date.now() * 0.001;
+            this.particles.scale.setScalar(1 + Math.sin(time) * 0.05);
+
+            // Flicker effect
+            if (Math.random() > 0.98) {
+                this.particles.material.opacity = 0.3;
+            } else {
+                this.particles.material.opacity = 0.8;
+            }
+        }
+
+        this.renderer.render(this.scene, this.camera);
+    }
+};
+
 const NeuralLink = {
     form: document.getElementById('neural-form'),
     feedback: document.getElementById('form-feedback'),
@@ -544,5 +722,6 @@ const NeuralLink = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+    HologramManager.init();
     NeuralLink.init();
 });
