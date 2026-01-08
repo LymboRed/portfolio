@@ -520,11 +520,18 @@ const HologramManager = {
 
     updateColors() {
         if (!this.particles) return;
-        const accentColor = new THREE.Color(getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim() || '#00ff41');
-        const colors = this.particles.geometry.attributes.color.array;
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        const accentColorStr = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim();
+        const accentColor = new THREE.Color(accentColorStr || '#00ff41');
         
+        // Improve visibility in light mode
+        this.particles.material.size = isDark ? 0.12 : 0.15;
+        this.particles.material.opacity = isDark ? 0.8 : 0.9;
+        this.particles.material.blending = isDark ? THREE.AdditiveBlending : THREE.NormalBlending;
+        
+        const colors = this.particles.geometry.attributes.color.array;
         for (let i = 0; i < colors.length / 3; i++) {
-            const mixedColor = accentColor.clone().lerp(new THREE.Color('#ffffff'), Math.random() * 0.3);
+            const mixedColor = accentColor.clone().lerp(new THREE.Color(isDark ? '#ffffff' : '#000000'), Math.random() * (isDark ? 0.4 : 0.2));
             colors[i * 3] = mixedColor.r;
             colors[i * 3 + 1] = mixedColor.g;
             colors[i * 3 + 2] = mixedColor.b;
@@ -591,7 +598,8 @@ const HologramManager = {
             positions[i * 3 + 1] = z; // Map z to vertical
             positions[i * 3 + 2] = y;
 
-            const mixedColor = accentColor.clone().lerp(new THREE.Color('#ffffff'), Math.random() * 0.4);
+            const isDark = document.body.getAttribute('data-theme') === 'dark';
+            const mixedColor = accentColor.clone().lerp(new THREE.Color(isDark ? '#ffffff' : '#000000'), Math.random() * (isDark ? 0.4 : 0.2));
             colors[i * 3] = mixedColor.r;
             colors[i * 3 + 1] = mixedColor.g;
             colors[i * 3 + 2] = mixedColor.b;
@@ -600,16 +608,21 @@ const HologramManager = {
         geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
         geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
         const material = new THREE.PointsMaterial({
-            size: 0.12,
+            size: isDark ? 0.12 : 0.15,
             vertexColors: true,
             transparent: true,
             opacity: 0,
-            blending: THREE.AdditiveBlending
+            blending: isDark ? THREE.AdditiveBlending : THREE.NormalBlending
         });
 
         this.particles = new THREE.Points(geometry, material);
         this.scene.add(this.particles);
+
+        // Signal system setup
+        this.activeSignals = [];
+        this.maxSignals = 15;
 
         // Intricate Neural Web (More specific connections)
         const lineMaterial = new THREE.LineBasicMaterial({ 
@@ -655,30 +668,57 @@ const HologramManager = {
                 this.particles.rotation.y += 0.003;
             }
             
-            // Subconscious "breathing" and neural pulses
             const time = Date.now() * 0.001;
             this.particles.scale.setScalar(1 + Math.sin(time * 0.5) * 0.03);
 
             // Flicker and neural flash effect
-            if (Math.random() > 0.97) {
-                this.particles.material.opacity = 0.4 + Math.random() * 0.4;
+            if (Math.random() > 0.98) {
+                this.particles.material.opacity = 0.5 + Math.random() * 0.3;
             }
 
-            // Neural activity visual simulation
-            const positions = this.particles.geometry.attributes.position.array;
+            // --- Advanced Neural Signal Simulation ---
             const colors = this.particles.geometry.attributes.color.array;
+            const isDark = document.body.getAttribute('data-theme') === 'dark';
+            const accentColorStr = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim();
+            const accentColor = new THREE.Color(accentColorStr || '#00ff41');
+
+            // 1. Spontaneous "Firing" Synapses
+            if (Math.random() > 0.85) {
+                const count = Math.floor(Math.random() * 5) + 1;
+                for(let k=0; k<count; k++) {
+                    const idx = Math.floor(Math.random() * colors.length / 3);
+                    this.activeSignals.push({
+                        index: idx,
+                        life: 1.0,
+                        speed: 0.02 + Math.random() * 0.05
+                    });
+                }
+            }
+
+            // 2. Update and Render Signals
+            for (let i = this.activeSignals.length - 1; i >= 0; i--) {
+                const signal = this.activeSignals[i];
+                signal.life -= signal.speed;
+
+                if (signal.life <= 0) {
+                    // Reset to base color (approximated)
+                    const mixedColor = accentColor.clone().lerp(new THREE.Color(isDark ? '#ffffff' : '#000000'), 0.2);
+                    colors[signal.index * 3] = mixedColor.r;
+                    colors[signal.index * 3 + 1] = mixedColor.g;
+                    colors[signal.index * 3 + 2] = mixedColor.b;
+                    this.activeSignals.splice(i, 1);
+                } else {
+                    // Highlight color based on signal life
+                    const intensity = Math.sin(signal.life * Math.PI);
+                    const signalColor = new THREE.Color(isDark ? '#ffffff' : '#ff003c').lerp(accentColor, 1 - intensity);
+                    colors[signal.index * 3] = signalColor.r;
+                    colors[signal.index * 3 + 1] = signalColor.g;
+                    colors[signal.index * 3 + 2] = signalColor.b;
+                }
+            }
             
-            if (Math.random() > 0.9) {
-                const flashIdx = Math.floor(Math.random() * positions.length / 3);
-                colors[flashIdx * 3] = 1;
-                colors[flashIdx * 3 + 1] = 1;
-                colors[flashIdx * 3 + 2] = 1;
+            if (this.activeSignals.length > 0) {
                 this.particles.geometry.attributes.color.needsUpdate = true;
-                
-                // Reset color after a frame
-                setTimeout(() => {
-                    this.updateColors();
-                }, 100);
             }
         }
 
