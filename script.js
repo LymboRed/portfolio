@@ -455,3 +455,94 @@ const GitHubStats = {
 document.addEventListener('DOMContentLoaded', () => {
     GitHubStats.init();
 });
+
+// --- Neural Link Logic ---
+const NeuralLink = {
+    form: document.getElementById('neural-form'),
+    feedback: document.getElementById('form-feedback'),
+    syncText: document.getElementById('sync-status'),
+    nodeLocation: document.getElementById('node-location'),
+
+    init() {
+        if (!this.form) return;
+
+        // Simulate node location scanning
+        setTimeout(() => {
+            if(this.nodeLocation) {
+                this.nodeLocation.textContent = "CONNECTED: NODE_" + Math.random().toString(36).substring(7).toUpperCase();
+            }
+        }, 2000);
+
+        const inputs = this.form.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                SoundManager.beep();
+                if(this.syncText) this.syncText.textContent = "SYNCHRONIZING...";
+            });
+            
+            input.addEventListener('blur', () => {
+                if(this.syncText) this.syncText.textContent = "WAITING";
+            });
+
+            input.addEventListener('input', () => {
+                if (Math.random() > 0.95) {
+                    if(this.syncText) this.syncText.textContent = "DATA_STREAM_ACTIVE";
+                    setTimeout(() => { if(this.syncText) this.syncText.textContent = "SYNCHRONIZING..."; }, 500);
+                }
+            });
+        });
+
+        this.form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            SoundManager.glitch();
+            
+            const btn = document.getElementById('submit-link');
+            const originalHTML = btn.innerHTML;
+            
+            btn.innerHTML = 'ESTABLISHING_UPLINK...';
+            btn.disabled = true;
+            
+            if(this.syncText) this.syncText.textContent = "UPLOADING_PAYLOAD";
+
+            const formData = new FormData(this.form);
+            
+            try {
+                const response = await fetch(this.form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    this.showFeedback("TRANSMISSION_SUCCESSFUL: DATA_LOGGED_IN_CORE", "var(--accent-color)");
+                    this.form.reset();
+                    if(this.syncText) this.syncText.textContent = "LINK_TERMINATED";
+                } else {
+                    throw new Error();
+                }
+            } catch (err) {
+                this.showFeedback("CRITICAL_ERROR: UPLINK_FAILED", "var(--secondary-accent)");
+                if(this.syncText) this.syncText.textContent = "CONNECTION_LOST";
+            } finally {
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.disabled = false;
+                }, 2000);
+            }
+        });
+    },
+
+    showFeedback(text, color) {
+        if (!this.feedback) return;
+        this.feedback.textContent = `> ${text}`;
+        this.feedback.style.color = color;
+        this.feedback.style.display = 'block';
+        setTimeout(() => {
+            this.feedback.style.display = 'none';
+        }, 5000);
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    NeuralLink.init();
+});

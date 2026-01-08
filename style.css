@@ -703,3 +703,330 @@ footer a {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
 }
+
+/* Neural Link Contact Section */
+#contact {
+    margin-top: 4rem;
+    padding: 2rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    position: relative;
+}
+
+.neural-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.neural-status {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px dashed var(--accent-color);
+    font-size: 0.75rem;
+}
+
+.status-indicator .label {
+    opacity: 0.6;
+    margin-right: 5px;
+}
+
+.status-indicator .value {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.value.pulse {
+    animation: textPulse 2s infinite;
+}
+
+@keyframes textPulse {
+    0%, 100% { opacity: 1; text-shadow: 0 0 5px var(--accent-color); }
+    50% { opacity: 0.4; text-shadow: none; }
+}
+
+.neural-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+.input-group input, 
+.input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 255, 65, 0.2);
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    opacity: 0.5;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.input-group textarea ~ label {
+    top: 20px;
+}
+
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group textarea:focus ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.7rem;
+    opacity: 1;
+    color: var(--accent-color);
+    background: var(--bg-color);
+    padding: 0 5px;
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+}
+
+.scanner-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.input-group input:focus ~ .scanner-line,
+.input-group textarea:focus ~ .scanner-line {
+    animation: scanInput 1.5s infinite linear;
+}
+
+@keyframes scanInput {
+    0% { width: 0%; left: 0; }
+    50% { width: 100%; left: 0; }
+    100% { width: 0%; left: 100%; }
+}
+
+.neural-btn {
+    padding: 15px;
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    font-family: var(--font-mono);
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.neural-btn:hover {
+    background: var(--accent-color);
+    color: #000;
+    box-shadow: 0 0 20px var(--accent-color);
+}
+
+.form-feedback {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    min-height: 1.2rem;
+}
+
+.form-feedback.success { color: var(--accent-color); }
+.form-feedback.error { color: var(--secondary-accent); }
+
+/* Neural Link Styles */
+#neural-link {
+    margin-top: 4rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--glass-border);
+    position: relative;
+}
+
+.neural-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.neural-status-bar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+    padding-bottom: 5px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+    color: var(--accent-color);
+    opacity: 0.8;
+}
+
+.input-group input, 
+/* Neural Link Styles */
+#neural-link {
+    margin-top: 4rem;
+    padding: 2rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    position: relative;
+}
+
+.neural-container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.neural-sidebar {
+    padding-right: 1.5rem;
+    border-right: 1px solid rgba(0, 255, 65, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.status-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.status-item .label {
+    font-size: 0.6rem;
+    color: var(--text-color);
+    opacity: 0.5;
+    letter-spacing: 1px;
+}
+
+.status-item .value {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+#neural-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+.input-group input, 
+.input-group textarea {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 255, 65, 0.1);
+    padding: 12px;
+    color: var(--accent-color);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+    border-color: var(--accent-color);
+    background: rgba(0, 255, 65, 0.05);
+}
+
+.scan-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.input-group input:focus ~ .scan-line,
+.input-group textarea:focus ~ .scan-line {
+    width: 100%;
+}
+
+.neural-btn {
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 15px;
+    font-family: var(--font-mono);
+    font-weight: bold;
+    letter-spacing: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.neural-btn:hover {
+    background: rgba(0, 255, 65, 0.1);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+}
+
+@media (max-width: 768px) {
+    .neural-container {
+        grid-template-columns: 1fr;
+    }
+    .neural-sidebar {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 255, 65, 0.1);
+        padding-right: 0;
+        padding-bottom: 1.5rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}

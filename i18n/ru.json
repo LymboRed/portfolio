@@ -38,6 +38,7 @@
         }
     ],
     "contact": ">> [TARGET_COMMS]:",
+    "contactTitle": "🧠 УСТАНОВИТЬ_НЕЙРОСВЯЗЬ",
     "github": "DOWNLOAD_GIT_REPO",
     "statsTitle": "📊 ПАНЕЛЬ_АНАЛИТИКИ"
 }
