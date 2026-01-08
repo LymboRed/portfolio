@@ -41,6 +41,12 @@
     "contactTitle": "🧠 ÉTABLIR_LIEN_NEURAL",
     "github": "DOWNLOAD_GIT_REPO",
     "statsTitle": "📊 DASHBOARD_ANALYTIQUE",
+    "stats": {
+        "repos": "REPOS_DÉPLOYÉS",
+        "stars": "ÉTOILES_OBTENUES",
+        "followers": "NODES_EN_VEILLE",
+        "gists": "GISTS_PARTAGÉS"
+    },
     "classic": {
         "headerTitle": "Vadzim H. | Développeur Python & Data Analyst",
         "mainTitle": "DÉVELOPPEUR FULLSTACK",
@@ -48,6 +54,12 @@
         "skillsTitle": "Mes Compétences",
         "projectsTitle": "Mes Projets",
         "contactTitle": "Me Contacter",
-        "statsTitle": "Statistiques GitHub"
+        "statsTitle": "Statistiques GitHub",
+        "stats": {
+            "repos": "Dépôts Publics",
+            "stars": "Étoiles GitHub",
+            "followers": "Abonnés",
+            "gists": "Gists Publics"
+        }
     }
 }

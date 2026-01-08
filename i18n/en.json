@@ -41,6 +41,12 @@
     "contactTitle": "🧠 ESTABLISH_NEURAL_LINK",
     "github": "DOWNLOAD_GIT_REPO",
     "statsTitle": "📊 ANALYTICS_DASHBOARD",
+    "stats": {
+        "repos": "REPOS_DEPLOYED",
+        "stars": "STARS_EARNED",
+        "followers": "NODES_WATCHING",
+        "gists": "GISTS_SHARED"
+    },
     "classic": {
         "headerTitle": "Vadzim H. | Python Developer & Data Analyst",
         "mainTitle": "FULLSTACK DEVELOPER",
@@ -48,6 +54,12 @@
         "skillsTitle": "My Skills",
         "projectsTitle": "My Projects",
         "contactTitle": "Contact Me",
-        "statsTitle": "GitHub Statistics"
+        "statsTitle": "GitHub Statistics",
+        "stats": {
+            "repos": "Public Repos",
+            "stars": "GitHub Stars",
+            "followers": "Followers",
+            "gists": "Public Gists"
+        }
     }
 }
