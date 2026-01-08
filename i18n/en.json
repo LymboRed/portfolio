@@ -38,5 +38,6 @@
         }
     ],
     "contact": ">> [TARGET_COMMS]:",
-    "github": "DOWNLOAD_GIT_REPO"
+    "github": "DOWNLOAD_GIT_REPO",
+    "statsTitle": "📊 ANALYTICS_DASHBOARD"
 }

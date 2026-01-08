@@ -379,3 +379,79 @@ Available commands:
 document.addEventListener('DOMContentLoaded', () => {
     TerminalHandler.init();
 });
+
+// --- GitHub Stats Dashboard Logic ---
+const GitHubStats = {
+    username: 'LymboRed',
+    
+    async init() {
+        console.log("> INITIATING_GITHUB_API_FETCH...");
+        try {
+            const [userRes, reposRes, eventsRes] = await Promise.all([
+                fetch(`https://api.github.com/users/${this.username}`),
+                fetch(`https://api.github.com/users/${this.username}/repos?per_page=100`),
+                fetch(`https://api.github.com/users/${this.username}/events/public`)
+            ]);
+
+            const userData = await userRes.json();
+            const reposData = await reposRes.json();
+            const eventsData = await eventsRes.json();
+
+            if (userData.id) {
+                this.updateStats(userData, reposData);
+                this.updateActivity(eventsData);
+                console.log("> DATALINK_ESTABLISHED: GITHUB_ANALYTICS_LOADED");
+            } else {
+                throw new Error("User not found");
+            }
+        } catch (error) {
+            console.error("> GITHUB_API_ERROR:", error);
+            document.querySelector('#github-recent-activity').innerHTML = "<p style='color: var(--secondary-accent)'>> ERROR: CONNECTION_TIMEOUT_OR_RATE_LIMIT</p>";
+        }
+    },
+
+    updateStats(user, repos) {
+        document.getElementById('github-repos').textContent = user.public_repos;
+        document.getElementById('github-followers').textContent = user.followers;
+        
+        const stars = repos.reduce((acc, repo) => acc + repo.stargazers_count, 0);
+        document.getElementById('github-stars').textContent = stars;
+
+        document.getElementById('github-commits').textContent = user.public_gists;
+    },
+
+    updateActivity(events) {
+        const container = document.getElementById('github-recent-activity');
+        container.innerHTML = '';
+        
+        // Take last 5 relevant events
+        const relevantEvents = events
+            .filter(e => ['PushEvent', 'CreateEvent', 'WatchEvent'].includes(e.type))
+            .slice(0, 5);
+
+        if (relevantEvents.length === 0) {
+            container.innerHTML = "<p>> NO_RECENT_ACTIVITY_DETECTED</p>";
+            return;
+        }
+
+        relevantEvents.forEach(event => {
+            const item = document.createElement('div');
+            item.className = 'activity-item';
+            
+            let action = '';
+            if (event.type === 'PushEvent') action = 'committed to';
+            if (event.type === 'CreateEvent') action = 'created';
+            if (event.type === 'WatchEvent') action = 'starred';
+
+            const repoName = event.repo.name.split('/')[1];
+            const date = new Date(event.created_at).toLocaleDateString();
+
+            item.innerHTML = `> ${date}: ${action} <span class="repo-name">${repoName}</span>`;
+            container.appendChild(item);
+        });
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    GitHubStats.init();
+});
