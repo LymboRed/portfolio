@@ -271,3 +271,111 @@ themeSwitch.addEventListener('click', () => {
         localStorage.setItem('theme', newTheme);
     }, 300);
 });
+// --- Terminal CLI Logic ---
+const TerminalHandler = {
+    container: document.getElementById('terminal-container'),
+    toggle: document.getElementById('terminal-toggle'),
+    input: document.getElementById('terminal-input'),
+    output: document.getElementById('terminal-output'),
+    minimizeBtn: document.querySelector('.minimize-terminal'),
+    
+    commands: {
+        help: () => `
+Available commands:
+  help     - Show this list
+  about    - System kernel information
+  skills   - List technical capabilities
+  projects - View deployed modules
+  clear    - Flush terminal buffer
+  contact  - Initiate secure link
+  sudo     - Restricted access
+  matrix   - Re-run boot sequence
+  whoami   - Display user identity`,
+        
+        about: () => "LymboOS v2.0.42. Built by Vadzim H., Intelligence Engineer. Purpose: High-performance data analysis and software architecture.",
+        
+        skills: () => "Primary: Python, SQL, Docker, Bash.\nSecondary: JavaScript, C, NoSQL, Git.",
+        
+        projects: () => "1. Pokémon CLI - Game engine\n2. Data Analysis Pipeline - Pandas/NumPy\n3. LymboOS - Current Environment",
+        
+        clear: function() {
+            TerminalHandler.output.innerHTML = '';
+            return null;
+        },
+        
+        contact: () => "Direct Line: vadzimhast@icloud.com\nLinkedIn: [ENCRYPTED]\nGitHub: /LymboRed",
+        
+        sudo: () => "Error: Access denied. Root privileges required. This incident will be reported.",
+        
+        matrix: () => {
+            initMatrixLoader();
+            return "Re-initializing matrix backdrop...";
+        },
+        
+        whoami: () => "guest_researcher@lymbo_os. Session: Temporary.",
+
+        ls: () => "about.txt  skills.md  projects/  secrets.vault",
+
+        cat: function(fullCmd) {
+            const file = fullCmd.split(' ')[1];
+            if (!file) return "Usage: cat [file]";
+            if (file === 'about.txt') return this.about();
+            if (file === 'skills.md') return this.skills();
+            if (file === 'secrets.vault') return "[ENCRYPTED CONTENT] - Decryption key required.";
+            return `cat: ${file}: No such file or directory`;
+        }
+    },
+
+    init() {
+        this.toggle.addEventListener('click', () => {
+            SoundManager.click();
+            this.container.classList.toggle('terminal-minimized');
+            if (!this.container.classList.contains('terminal-minimized')) {
+                this.input.focus();
+            }
+        });
+
+        this.minimizeBtn.addEventListener('click', () => {
+            SoundManager.click();
+            this.container.classList.add('terminal-minimized');
+        });
+
+        this.input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const fullCmd = this.input.value.trim().toLowerCase();
+                const cmd = fullCmd.split(' ')[0];
+                
+                this.print(`guest@lymbo_os:~$ ${fullCmd}`);
+                
+                if (cmd === '') {
+                    // Do nothing
+                } else if (this.commands[cmd]) {
+                    const result = this.commands[cmd](fullCmd);
+                    if (result) this.print(result);
+                } else {
+                    this.print(`Command not found: ${cmd}. Type 'help' for available commands.`);
+                }
+                
+                this.input.value = '';
+                this.container.querySelector('#terminal-body').scrollTop = this.container.querySelector('#terminal-body').scrollHeight;
+            }
+        });
+
+        // Click anywhere in terminal to focus input
+        this.container.addEventListener('click', () => {
+            this.input.focus();
+        });
+    },
+
+    print(text) {
+        const div = document.createElement('div');
+        div.style.whiteSpace = 'pre-wrap';
+        div.style.marginBottom = '5px';
+        div.textContent = text;
+        this.output.appendChild(div);
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    TerminalHandler.init();
+});

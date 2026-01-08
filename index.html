@@ -57,6 +57,36 @@
         </div>
     </div>
 
+    <!-- Terminal Toggle Button -->
+    <div id="terminal-toggle" title="Open Terminal">
+        <i class="fas fa-terminal"></i>
+    </div>
+
+    <!-- Terminal Window -->
+    <div id="terminal-container" class="terminal-minimized">
+        <div id="terminal-header">
+            <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <div class="terminal-title">guest@lymbo_os: ~</div>
+            <div class="terminal-controls">
+                <i class="fas fa-minus minimize-terminal"></i>
+            </div>
+        </div>
+        <div id="terminal-body">
+            <div id="terminal-output">
+                <div>> Welcome to LymboOS v2.0.42</div>
+                <div>> Type 'help' to see available commands.</div>
+            </div>
+            <div class="terminal-input-line">
+                <span class="prompt">guest@lymbo_os:~$</span>
+                <input type="text" id="terminal-input" autofocus spellcheck="false" autocomplete="off">
+            </div>
+        </div>
+    </div>
+
     <main>
         <div class="title-section">
             <h1 id="main-title" data-i18n="mainTitle" data-text="DEVELOPER">DEVELOPER</h1>
