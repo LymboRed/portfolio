@@ -149,76 +149,77 @@
                         </article>
                     </div>
                 </section>
-
-                <section id="github-stats">
-                    <h2 data-i18n="statsTitle">📊 ANALYTICS_DASHBOARD</h2>
-                    <div class="stats-grid">
-                        <div class="stat-card" data-aos="zoom-in">
-                            <div class="stat-value" id="github-repos">--</div>
-                            <div class="stat-label">REPOS_DEPLOYED</div>
-                        </div>
-                        <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="stat-value" id="github-stars">--</div>
-                            <div class="stat-label">STARS_EARNED</div>
-                        </div>
-                        <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="stat-value" id="github-followers">--</div>
-                            <div class="stat-label">NODES_WATCHING</div>
-                        </div>
-                        <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
-                            <div class="stat-value" id="github-commits">--</div>
-                            <div class="stat-label">GISTS_SHARED</div>
-                        </div>
-                    </div>
-                    <div id="github-recent-activity" class="activity-feed">
-                        <p class="status-msg">> FETCHING_SYSTEM_LOGS...</p>
-                    </div>
-                </section>
-
-                <section id="neural-link">
-                    <h2 data-i18n="contactTitle">🧠 ESTABLISH_NEURAL_LINK</h2>
-                    <div class="neural-container">
-                        <div class="neural-sidebar">
-                            <div class="status-item">
-                                <span class="label">ENC_PROTOCOL:</span>
-                                <span class="value">SHA-512_SECURE</span>
-                            </div>
-                            <div class="status-item">
-                                <span class="label">SIGNAL_NODE:</span>
-                                <span class="value" id="node-location">SCANNING...</span>
-                            </div>
-                            <div class="status-item">
-                                <span class="label">SYNC_STATUS:</span>
-                                <span class="value" id="sync-status">WAITING</span>
-                            </div>
-                        </div>
-                        <form id="neural-form" action="https://formspree.io/f/xyzkpvqy" method="POST">
-                            <div class="input-group">
-                                <label for="name">IDENTIFIER</label>
-                                <input type="text" id="name" name="name" required placeholder="User_Name_00">
-                                <div class="scan-line"></div>
-                            </div>
-                            <div class="input-group">
-                                <label for="email">NODE_ADDRESS</label>
-                                <input type="email" id="email" name="email" required placeholder="node@ethernet.io">
-                                <div class="scan-line"></div>
-                            </div>
-                            <div class="input-group">
-                                <label for="message">DATA_PAYLOAD</label>
-                                <textarea id="message" name="message" required placeholder="Encrypt your transmission..."></textarea>
-                                <div class="scan-line"></div>
-                            </div>
-                            <button type="submit" id="submit-link" class="neural-btn">
-                                <span class="btn-text">INITIATE_UPLINK</span>
-                                <i class="fas fa-satellite-dish"></i>
-                            </button>
-                            <p id="form-feedback" class="status-msg" style="display: none; margin-top: 1rem;"></p>
-                        </form>
-                    </div>
-                </section>
             </div>
         </div>
 
+        <div class="bottom-container">
+            <section id="github-stats">
+                <h2 data-i18n="statsTitle">📊 ANALYTICS_DASHBOARD</h2>
+                <div class="stats-grid">
+                    <div class="stat-card" data-aos="zoom-in">
+                        <div class="stat-value" id="github-repos">--</div>
+                        <div class="stat-label">REPOS_DEPLOYED</div>
+                    </div>
+                    <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="stat-value" id="github-stars">--</div>
+                        <div class="stat-label">STARS_EARNED</div>
+                    </div>
+                    <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="stat-value" id="github-followers">--</div>
+                        <div class="stat-label">NODES_WATCHING</div>
+                    </div>
+                    <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="stat-value" id="github-commits">--</div>
+                        <div class="stat-label">GISTS_SHARED</div>
+                    </div>
+                </div>
+                <div id="github-recent-activity" class="activity-feed">
+                    <p class="status-msg">> FETCHING_SYSTEM_LOGS...</p>
+                </div>
+            </section>
+
+            <section id="neural-link">
+                <h2 data-i18n="contactTitle">🧠 ESTABLISH_NEURAL_LINK</h2>
+                <div class="neural-container">
+                    <div class="neural-sidebar">
+                        <div class="status-item">
+                            <span class="label">ENC_PROTOCOL:</span>
+                            <span class="value">SHA-512_SECURE</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="label">SIGNAL_NODE:</span>
+                            <span class="value" id="node-location">SCANNING...</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="label">SYNC_STATUS:</span>
+                            <span class="value" id="sync-status">WAITING</span>
+                        </div>
+                    </div>
+                    <form id="neural-form" action="https://formspree.io/f/xyzkpvqy" method="POST">
+                        <div class="input-group">
+                            <label for="name">IDENTIFIER</label>
+                            <input type="text" id="name" name="name" required placeholder="User_Name_00">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="input-group">
+                            <label for="email">NODE_ADDRESS</label>
+                            <input type="email" id="email" name="email" required placeholder="node@ethernet.io">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="input-group">
+                            <label for="message">DATA_PAYLOAD</label>
+                            <textarea id="message" name="message" required placeholder="Encrypt your transmission..."></textarea>
+                            <div class="scan-line"></div>
+                        </div>
+                        <button type="submit" id="submit-link" class="neural-btn">
+                            <span class="btn-text">INITIATE_UPLINK</span>
+                            <i class="fas fa-satellite-dish"></i>
+                        </button>
+                        <p id="form-feedback" class="status-msg" style="display: none; margin-top: 1rem;"></p>
+                    </form>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer>

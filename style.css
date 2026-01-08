@@ -1030,3 +1030,22 @@ footer a {
         justify-content: space-between;
     }
 }
+
+/* Bottom Grid Layout */
+.bottom-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+#github-stats, #neural-link {
+    margin-top: 0; /* Override previous margin-top */
+    height: 100%;
+}
+
+@media (max-width: 1100px) {
+    .bottom-container {
+        grid-template-columns: 1fr;
+    }
+}
