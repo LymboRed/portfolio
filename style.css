@@ -9,6 +9,121 @@
     --font-mono: 'Fira Code', 'JetBrains Mono', monospace;
 }
 
+/* Classic Mode Variable Overrides */
+body.classic-mode {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1b;
+    --accent-color: #2563eb; /* Corporate Blue */
+    --secondary-accent: #dc2626;
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(37, 99, 235, 0.1);
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    cursor: default;
+}
+
+body.classic-mode[data-theme="dark"] {
+    --bg-color: #0f172a;
+    --text-color: #f8fafc;
+    --accent-color: #38bdf8;
+    --glass-bg: rgba(30, 41, 59, 0.8);
+}
+
+body.classic-mode, 
+body.classic-mode * {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+/* Hide OS-specific effects in Classic Mode */
+body.classic-mode::before, 
+body.classic-mode .avatar-scanlines,
+body.classic-mode .terminal-overlay {
+    display: none !important;
+}
+
+body.classic-mode header {
+    text-transform: none;
+    letter-spacing: normal;
+    background: var(--bg-color);
+}
+
+body.classic-mode .logo {
+    text-shadow: none;
+    -webkit-text-stroke: 0;
+    letter-spacing: normal;
+}
+
+body.classic-mode .avatar-frame {
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+}
+
+body.classic-mode #terminal-toggle {
+    display: none;
+}
+
+body.classic-mode #terminal-container {
+    display: none !important;
+}
+
+/* Classic Mode Grid & Card Refinement */
+body.classic-mode .project-card,
+body.classic-mode .skills-container,
+body.classic-mode .github-stats-card,
+body.classic-mode .neural-link-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    backdrop-filter: none;
+    border-radius: 8px;
+}
+
+body.classic-mode[data-theme="dark"] .project-card,
+body.classic-mode[data-theme="dark"] .github-stats-card,
+body.classic-mode[data-theme="dark"] .neural-link-card {
+    background: #1e293b;
+    border-color: #334155;
+    color: #f8fafc;
+}
+
+body.classic-mode h2 {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 5px;
+    display: block;
+}
+
+body.classic-mode .badge {
+    background: #f1f5f9;
+    color: #475569;
+    border: none;
+}
+
+body.classic-mode[data-theme="dark"] .badge {
+    background: #334155;
+    color: #cbd5e1;
+}
+
+/* Floating Avatar Gaming Effect */
+.avatar-frame::after {
+    content: "LVL 99";
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: var(--accent-color);
+    color: var(--bg-color);
+    font-size: 0.6rem;
+    padding: 2px 5px;
+    font-weight: bold;
+    z-index: 10;
+    border-radius: 3px;
+    opacity: 0.8;
+}
+
+body.classic-mode .avatar-frame::after {
+    content: "ONLINE";
+    background: #22c55e;
+}
+
 [data-theme="dark"] {
     --bg-color: #0a0a0b;
     --text-color: #00ff41;
@@ -200,6 +315,42 @@ header {
     box-shadow: 0 0 10px var(--accent-color);
 }
 
+/* Style Switcher */
+#style-switch-wrapper {
+    border: 1px solid var(--accent-color);
+    padding: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    background: var(--glass-bg);
+}
+
+#style-toggle-inner {
+    display: flex;
+    gap: 10px;
+}
+
+#style-switch-wrapper .style-icon {
+    font-size: 0.9rem;
+    padding: 5px 8px;
+    border-radius: 15px;
+    transition: all 0.3s;
+}
+
+body:not(.classic-mode) .mode-os {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
+body.classic-mode .mode-classic {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
 #audio-toggle.muted {
     opacity: 0.5;
     color: var(--secondary-accent);
@@ -265,6 +416,70 @@ main {
     text-align: center;
     margin-bottom: 4rem;
     position: relative;
+}
+
+.profile-avatar-container {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.avatar-frame {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    border: 3px solid var(--accent-color);
+    border-radius: 50%; /* Classic look fallback */
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 0 20px var(--accent-color);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.avatar-frame:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+#profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    position: relative;
+}
+
+.avatar-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 15px var(--accent-color);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.avatar-scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0) 0px,
+        rgba(0, 0, 0, 0) 2px,
+        rgba(0, 255, 65, 0.05) 3px,
+        rgba(0, 255, 65, 0.05) 4px
+    );
+    z-index: 3;
+    pointer-events: none;
+    animation: scan-move 10s linear infinite;
+}
+
+@keyframes scan-move {
+    from { background-position: 0 0; }
+    to { background-position: 0 100%; }
 }
 
 #hologram-container {

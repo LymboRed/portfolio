@@ -26,7 +26,8 @@ function initMatrixLoader() {
     const loader = document.getElementById('matrix-loader');
 
     const interval = setInterval(() => {
-        progress += Math.random() * 15; // Faster simulation
+        const isClassic = document.body.classList.contains('classic-mode');
+        progress += isClassic ? (Math.random() * 30 + 10) : (Math.random() * 15);
         if (progress >= 100) {
             progress = 100;
             clearInterval(interval);
@@ -272,6 +273,30 @@ themeSwitch.addEventListener('click', () => {
         // Notify other modules of theme change
         document.body.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: newTheme } }));
     }, 300);
+});
+
+// Style Switcher (LymboOS vs Classic)
+const styleSwitch = document.getElementById('style-switch-wrapper');
+const savedStyle = localStorage.getItem('portfolio_style') || 'os';
+
+if (savedStyle === 'classic') {
+    body.classList.add('classic-mode');
+}
+
+styleSwitch.addEventListener('click', () => {
+    SoundManager.click();
+    const isClassic = body.classList.toggle('classic-mode');
+    const newStyle = isClassic ? 'classic' : 'os';
+    localStorage.setItem('portfolio_style', newStyle);
+    
+    console.log(`> SWITCHING_INTERFACE_MODE: ${newStyle.toUpperCase()}`);
+    
+    // Trigger theme change event to update 3D brain colors to new classic accent
+    setTimeout(() => {
+        document.body.dispatchEvent(new CustomEvent('themeChanged', { 
+            detail: { theme: body.getAttribute('data-theme'), style: newStyle } 
+        }));
+    }, 50);
 });
 // --- Terminal CLI Logic ---
 const TerminalHandler = {
@@ -521,17 +546,21 @@ const HologramManager = {
     updateColors() {
         if (!this.particles) return;
         const isDark = document.body.getAttribute('data-theme') === 'dark';
+        const isClassic = document.body.classList.contains('classic-mode');
         const accentColorStr = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim();
         const accentColor = new THREE.Color(accentColorStr || '#00ff41');
         
-        // Improve visibility in light mode
+        // Improve visibility
         this.particles.material.size = isDark ? 0.12 : 0.15;
         this.particles.material.opacity = isDark ? 0.8 : 0.9;
-        this.particles.material.blending = isDark ? THREE.AdditiveBlending : THREE.NormalBlending;
+        
+        // Use Normal blending in classic mode to avoid "neon" look
+        this.particles.material.blending = (isDark && !isClassic) ? THREE.AdditiveBlending : THREE.NormalBlending;
         
         const colors = this.particles.geometry.attributes.color.array;
         for (let i = 0; i < colors.length / 3; i++) {
-            const mixedColor = accentColor.clone().lerp(new THREE.Color(isDark ? '#ffffff' : '#000000'), Math.random() * (isDark ? 0.4 : 0.2));
+            const lerpColor = isDark ? new THREE.Color('#ffffff') : new THREE.Color('#000000');
+            const mixedColor = accentColor.clone().lerp(lerpColor, Math.random() * (isDark ? 0.4 : 0.2));
             colors[i * 3] = mixedColor.r;
             colors[i * 3 + 1] = mixedColor.g;
             colors[i * 3 + 2] = mixedColor.b;
