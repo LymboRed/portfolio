@@ -105,18 +105,18 @@ const SoundManager = {
         } catch (e) { console.warn("Audio Context blocked"); }
     },
 
-    click() { this.playUI(800, 'square', 0.05); },
+    click() { this.playUI(1000, 'sine', 0.03); }, // Softer, cleaner click
     beep() { this.playUI(400, 'sine', 0.08); },
     glitch() { this.playUI(150, 'sawtooth', 0.1); },
     
-    marioCoin() {
+    starCoin() {
         if (!this.enabled) return;
         this.init();
         
-        const playTone = (freq, start, duration) => {
+        const playTone = (freq, start, duration, type = 'sine') => {
             const osc = this.ctx.createOscillator();
             const gain = this.ctx.createGain();
-            osc.type = 'sine';
+            osc.type = type;
             osc.frequency.setValueAtTime(freq, this.ctx.currentTime + start);
             gain.gain.setValueAtTime(0.2, this.ctx.currentTime + start);
             gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + start + duration);
@@ -126,8 +126,11 @@ const SoundManager = {
             osc.stop(this.ctx.currentTime + start + duration);
         };
 
-        playTone(987.77, 0, 0.1); // B5
-        playTone(1318.51, 0.1, 0.5); // E6
+        // Star Coin sparkly sequence
+        playTone(987.77, 0, 0.1, 'sine');   // B5
+        playTone(1318.51, 0.05, 0.1, 'sine'); // E6
+        playTone(1567.98, 0.1, 0.1, 'sine');  // G6
+        playTone(1975.53, 0.15, 0.4, 'sine'); // B6
     }
 };
 
@@ -233,7 +236,7 @@ const qrCodeContainer = document.getElementById('qr-code');
 const closeQr = document.getElementById('close-qr');
 
 logo.addEventListener('click', () => {
-    SoundManager.glitch();
+    SoundManager.click();
     const currentUrl = window.location.href;
     qrCodeContainer.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentUrl)}" alt="QR Code">`;
     qrModal.style.display = 'flex';
@@ -255,7 +258,7 @@ if (savedTheme === 'dark') {
 }
 
 themeSwitch.addEventListener('click', () => {
-    SoundManager.marioCoin();
+    SoundManager.starCoin();
     const currentTheme = body.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
