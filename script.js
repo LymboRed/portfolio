@@ -94,7 +94,7 @@ const SoundManager = {
             osc.type = type;
             osc.frequency.setValueAtTime(frequency, this.ctx.currentTime);
             
-            gain.gain.setValueAtTime(0.05, this.ctx.currentTime); // Low volume
+            gain.gain.setValueAtTime(0.2, this.ctx.currentTime); // Volume increased to 20%
             gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + duration);
             
             osc.connect(gain);
@@ -107,7 +107,28 @@ const SoundManager = {
 
     click() { this.playUI(800, 'square', 0.05); },
     beep() { this.playUI(400, 'sine', 0.08); },
-    glitch() { this.playUI(150, 'sawtooth', 0.1); }
+    glitch() { this.playUI(150, 'sawtooth', 0.1); },
+    
+    marioCoin() {
+        if (!this.enabled) return;
+        this.init();
+        
+        const playTone = (freq, start, duration) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, this.ctx.currentTime + start);
+            gain.gain.setValueAtTime(0.2, this.ctx.currentTime + start);
+            gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + start + duration);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(this.ctx.currentTime + start);
+            osc.stop(this.ctx.currentTime + start + duration);
+        };
+
+        playTone(987.77, 0, 0.1); // B5
+        playTone(1318.51, 0.1, 0.5); // E6
+    }
 };
 
 // Initialize Audio & Hover Listeners
@@ -234,7 +255,7 @@ if (savedTheme === 'dark') {
 }
 
 themeSwitch.addEventListener('click', () => {
-    SoundManager.glitch();
+    SoundManager.marioCoin();
     const currentTheme = body.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
