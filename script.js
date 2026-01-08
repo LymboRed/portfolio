@@ -465,8 +465,8 @@ const HologramManager = {
         if (!this.container) return;
 
         this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-        this.camera.position.z = 15;
+        this.camera = new THREE.PerspectiveCamera(75, this.container.clientWidth / this.container.clientHeight, 0.1, 1000);
+        this.camera.position.z = 14;
 
         this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
@@ -475,6 +475,13 @@ const HologramManager = {
 
         this.particles = null;
         this.createBrain();
+        
+        // Initial rotation for better perspective
+        if (this.particles) {
+            this.particles.rotation.x = 0.5;
+            this.particles.rotation.y = Math.PI / 4;
+        }
+
         this.animate();
 
         window.addEventListener('resize', () => this.onResize());
@@ -526,7 +533,7 @@ const HologramManager = {
     },
 
     createBrain() {
-        const particleCount = 2500;
+        const particleCount = 4000;
         const geometry = new THREE.BufferGeometry();
         const positions = new Float32Array(particleCount * 3);
         const colors = new Float32Array(particleCount * 3);
@@ -534,29 +541,55 @@ const HologramManager = {
         const accentColor = new THREE.Color(getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim() || '#00ff41');
 
         for (let i = 0; i < particleCount; i++) {
-            // Brain-like shape using two spheres/hemispheres with noise
+            // Precise Human Brain Anatomical Modeling
             const phi = Math.random() * Math.PI * 2;
             const theta = Math.random() * Math.PI;
             
-            const r = 5 + Math.random() * 1.5;
-            let x = r * Math.sin(theta) * Math.cos(phi) * 1.3;
-            let y = r * Math.sin(theta) * Math.sin(phi) * 0.9;
-            let z = r * Math.cos(theta) * 0.8;
+            // Base radius
+            let r = 5.8;
+            
+            // Anatomical Dimensions (Length, Width, Height)
+            let x = r * Math.sin(theta) * Math.cos(phi) * 1.5; // Depth
+            let y = r * Math.sin(theta) * Math.sin(phi) * 1.2; // Width
+            let z = r * Math.cos(theta) * 0.95;               // Height
 
-            // Fold distortion
-            const angle = Math.atan2(y, x);
-            const dist = Math.sqrt(x*x + y*y);
-            const fold = Math.sin(dist * 1.2) * 0.5;
-            x += Math.cos(angle) * fold;
-            y += Math.sin(angle) * fold;
+            // 1. Frontal Lobe (narrower, higher)
+            if (x > 1) { 
+                y *= 0.82;
+                z *= 1.1;
+            } 
+            
+            // 2. Temporal Lobes (sides bulge)
+            if (Math.abs(x) < 1.5 && Math.abs(z) < 1) {
+                y *= 1.15;
+            }
 
-            // Hemisphere split
-            if (x > 0) x += 0.4;
-            else x -= 0.4;
+            // 3. Cerebellum (back-bottom tuck)
+            if (x < -2.5 && z < -1) {
+                y *= 0.75;
+                x += 0.8;
+                z *= 0.8;
+            }
+
+            // Gyrus/Sulcus Wrinkles (Complex frequency modulation)
+            const folding = 1 + (Math.sin(x * 2.2) * Math.cos(y * 2.2) * Math.sin(z * 2.2)) * 0.15;
+            x *= folding;
+            y *= folding;
+            z *= folding;
+
+            // Deep Longitudinal Fissure (Absolute Hemisphere Gap)
+            const fissureWidth = 0.65;
+            if (y > 0) y += fissureWidth;
+            else y -= fissureWidth;
+            
+            // Create the vertical drop in the fissure
+            if (Math.abs(y) < fissureWidth + 0.3) {
+                z -= 0.6; 
+            }
 
             positions[i * 3] = x;
-            positions[i * 3 + 1] = y;
-            positions[i * 3 + 2] = z;
+            positions[i * 3 + 1] = z; // Map z to vertical
+            positions[i * 3 + 2] = y;
 
             const mixedColor = accentColor.clone().lerp(new THREE.Color('#ffffff'), Math.random() * 0.4);
             colors[i * 3] = mixedColor.r;
@@ -568,26 +601,28 @@ const HologramManager = {
         geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
         const material = new THREE.PointsMaterial({
-            size: 0.08,
+            size: 0.12,
             vertexColors: true,
             transparent: true,
-            opacity: 0, // Start invisible for entry animation
+            opacity: 0,
             blending: THREE.AdditiveBlending
         });
 
         this.particles = new THREE.Points(geometry, material);
         this.scene.add(this.particles);
 
-        // Neural web connections
+        // Intricate Neural Web (More specific connections)
         const lineMaterial = new THREE.LineBasicMaterial({ 
             color: accentColor, 
             transparent: true, 
-            opacity: 0.1 
+            opacity: 0.08 
         });
         
-        for(let i = 0; i < 60; i++) {
+        for(let i = 0; i < 150; i++) {
             const p1 = Math.floor(Math.random() * particleCount);
-            const p2 = Math.floor(Math.random() * particleCount);
+            // Connect to nearby point for "neural paths"
+            const p2 = (p1 + Math.floor(Math.random() * 20)) % particleCount;
+            
             const lineGeometry = new THREE.BufferGeometry().setFromPoints([
                 new THREE.Vector3(positions[p1*3], positions[p1*3+1], positions[p1*3+2]),
                 new THREE.Vector3(positions[p2*3], positions[p2*3+1], positions[p2*3+2])
@@ -596,18 +631,18 @@ const HologramManager = {
             this.particles.add(line);
         }
 
-        // Fade in animation
+        // Establishment Sequence
         let opacity = 0;
         const fadeIn = setInterval(() => {
-            opacity += 0.05;
-            this.particles.material.opacity = opacity;
+            opacity += 0.02;
+            if (this.particles) this.particles.material.opacity = opacity;
             if (opacity >= 0.8) clearInterval(fadeIn);
-        }, 50);
+        }, 30);
     },
 
     onResize() {
         if (!this.container) return;
-        this.camera.aspect = 1;
+        this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
     },
@@ -616,18 +651,34 @@ const HologramManager = {
         requestAnimationFrame(() => this.animate());
 
         if (this.particles) {
-            this.particles.rotation.y += 0.005;
-            this.particles.rotation.x += 0.002;
+            if (!this.isDragging) {
+                this.particles.rotation.y += 0.003;
+            }
             
-            // Subtle "breathing" effect
+            // Subconscious "breathing" and neural pulses
             const time = Date.now() * 0.001;
-            this.particles.scale.setScalar(1 + Math.sin(time) * 0.05);
+            this.particles.scale.setScalar(1 + Math.sin(time * 0.5) * 0.03);
 
-            // Flicker effect
-            if (Math.random() > 0.98) {
-                this.particles.material.opacity = 0.3;
-            } else {
-                this.particles.material.opacity = 0.8;
+            // Flicker and neural flash effect
+            if (Math.random() > 0.97) {
+                this.particles.material.opacity = 0.4 + Math.random() * 0.4;
+            }
+
+            // Neural activity visual simulation
+            const positions = this.particles.geometry.attributes.position.array;
+            const colors = this.particles.geometry.attributes.color.array;
+            
+            if (Math.random() > 0.9) {
+                const flashIdx = Math.floor(Math.random() * positions.length / 3);
+                colors[flashIdx * 3] = 1;
+                colors[flashIdx * 3 + 1] = 1;
+                colors[flashIdx * 3 + 2] = 1;
+                this.particles.geometry.attributes.color.needsUpdate = true;
+                
+                // Reset color after a frame
+                setTimeout(() => {
+                    this.updateColors();
+                }, 100);
             }
         }
 
