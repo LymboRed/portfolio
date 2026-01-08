@@ -1,6 +1,6 @@
 {
-    "headerTitle": "VADZIM H. // RED_PROTOCOLS",
-    "mainTitle": "ИНЖЕНЕР_ИИ",
+    "headerTitle": "VADZIM HASTSIAYEU // RED_PROTOCOLS",
+    "mainTitle": "АРХИТЕКТОР_ИИ",
     "aboutTitle": ">> [LOAD_ABOUT]",
     "about": {
         "p1": "Архитектор систем, бывший оперативник 42 Paris. Специализируюсь на производительной инженерии на Python и управлении жизненным циклом данных.",
@@ -47,19 +47,36 @@
         "followers": "УЗЛОВ_СЛЕДИТ",
         "gists": "ГИСТОВ_ОБЩИХ"
     },
+    "nameLabel": "ИДЕНТИФИКАТОР",
+    "namePlaceholder": "User_00",
+    "emailLabel": "АДРЕС_УЗЛА",
+    "emailPlaceholder": "node@ethernet.io",
+    "messageLabel": "ГРУЗ_ДАННЫХ",
+    "messagePlaceholder": "Зашифруйте сообщение...",
+    "submitBtn": "ИНИЦИИРОВАТЬ_СВЯЗЬ",
+    "footerRights": "© 2026 Вадим Хостяев. Протоколы защиты активны.",
     "classic": {
-        "headerTitle": "Vadzim H. | Python Разработчик & Data Аналитик",
-        "mainTitle": "FULLSTACK РАЗРАБОТЧИК",
-        "aboutTitle": "Обо мне",
-        "skillsTitle": "Навыки",
-        "projectsTitle": "Мои проекты",
+        "headerTitle": "Вадим ХОСТЯЕВ | Архитектор ИИ-решений",
+        "mainTitle": "АРХИТЕКТУРА ИИ И BIG DATA",
+        "aboutTitle": "Профессиональный профиль",
+        "skillsTitle": "Технические навыки",
+        "projectsTitle": "Проекты и достижения",
         "contactTitle": "Связаться со мной",
+        "nameLabel": "Полное имя",
+        "namePlaceholder": "Иван Иванов",
+        "emailLabel": "Электронная почта",
+        "emailPlaceholder": "name@example.com",
+        "messageLabel": "Ваше сообщение",
+        "messagePlaceholder": "Чем я могу вам помочь?",
+        "submitBtn": "Отправить сообщение",
+        "footerRights": "© 2026 Вадим Хостяев. Все права защищены.",
         "statsTitle": "Статистика GitHub",
         "stats": {
-            "repos": "Публичные репо",
+            "repos": "Публичные репозитории",
             "stars": "Звезды",
             "followers": "Подписчики",
             "gists": "Публичные гисты"
         }
     }
 }
+

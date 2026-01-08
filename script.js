@@ -328,7 +328,7 @@ Available commands:
   matrix   - Re-run boot sequence
   whoami   - Display user identity`,
         
-        about: () => "LymboOS v2.0.42. Built by Vadzim H., Intelligence Engineer. Purpose: High-performance data analysis and software architecture.",
+        about: () => "LymboOS v2.0.42. Built by Vadzim HASTSIAYEU, AI Solutions Architect. Purpose: Technical excellence and high-performance system architecture.",
         
         skills: () => "Primary: Python, SQL, Docker, Bash.\nSecondary: JavaScript, C, NoSQL, Git.",
         
@@ -412,10 +412,6 @@ Available commands:
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    TerminalHandler.init();
-});
-
 // --- GitHub Stats Dashboard Logic ---
 const GitHubStats = {
     username: 'LymboRed',
@@ -487,10 +483,6 @@ const GitHubStats = {
         });
     }
 };
-
-document.addEventListener('DOMContentLoaded', () => {
-    GitHubStats.init();
-});
 
 // --- Neural Link Logic ---
 const HologramManager = {
@@ -851,6 +843,8 @@ const NeuralLink = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+    TerminalHandler.init();
     HologramManager.init();
     NeuralLink.init();
+    GitHubStats.init();
 });

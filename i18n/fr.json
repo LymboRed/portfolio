@@ -1,6 +1,6 @@
 {
-    "headerTitle": "VADZIM H. // RED_PROTOCOLS",
-    "mainTitle": "INGÉNIEUR_IA",
+    "headerTitle": "VADZIM HASTSIAYEU // RED_PROTOCOLS",
+    "mainTitle": "ARCHITECTE_IA",
     "aboutTitle": ">> [LOAD_ABOUT]",
     "about": {
         "p1": "Architecte Systèmes et ancien opératif de 42 Paris. Spécialisé en ingénierie Python haute performance et gestion du cycle de vie des données.",
@@ -47,13 +47,29 @@
         "followers": "NODES_EN_VEILLE",
         "gists": "GISTS_PARTAGÉS"
     },
+    "nameLabel": "IDENTIFIANT",
+    "namePlaceholder": "Nom_Utilisateur_00",
+    "emailLabel": "ADRESSE_NODE",
+    "emailPlaceholder": "node@ethernet.io",
+    "messageLabel": "CHARGE_UTILE",
+    "messagePlaceholder": "Chiffrez votre transmission...",
+    "submitBtn": "INITIALISER_UPLINK",
+    "footerRights": "© 2026 Vadzim Hastsiaveu. Protocoles de sécurité activés.",
     "classic": {
-        "headerTitle": "Vadzim H. | Développeur Python & Data Analyst",
-        "mainTitle": "DÉVELOPPEUR FULLSTACK",
-        "aboutTitle": "À Propos",
-        "skillsTitle": "Mes Compétences",
-        "projectsTitle": "Mes Projets",
+        "headerTitle": "Vadzim HASTSIAYEU | Architecte IA",
+        "mainTitle": "ARCHITECTE IA & BIG DATA",
+        "aboutTitle": "Profil Professionnel",
+        "skillsTitle": "Expertise Technique",
+        "projectsTitle": "Projets & Réalisations",
         "contactTitle": "Me Contacter",
+        "nameLabel": "Nom complet",
+        "namePlaceholder": "Ex: Jean Dupont",
+        "emailLabel": "Adresse e-mail",
+        "emailPlaceholder": "nom@exemple.fr",
+        "messageLabel": "Message",
+        "messagePlaceholder": "Comment puis-je vous aider ?",
+        "submitBtn": "Envoyer le message",
+        "footerRights": "© 2026 Vadzim Hastsiaveu. Tous droits réservés.",
         "statsTitle": "Statistiques GitHub",
         "stats": {
             "repos": "Dépôts Publics",
@@ -63,3 +79,4 @@
         }
     }
 }
+

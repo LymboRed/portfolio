@@ -58,12 +58,50 @@ body.classic-mode h1 {
     -webkit-text-fill-color: var(--accent-color);
 }
 
-body.classic-mode #terminal-toggle {
-    display: none;
+/* Terminal in Classic Mode - Adapt colors */
+body.classic-mode #terminal-container {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    color: #1e293b;
 }
 
-body.classic-mode #terminal-container {
-    display: none !important;
+body.classic-mode[data-theme="dark"] #terminal-container {
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #f8fafc;
+}
+
+body.classic-mode #terminal-header {
+    background: #e2e8f0;
+    border-bottom: 1px solid #cbd5e1;
+    color: #475569;
+}
+
+body.classic-mode[data-theme="dark"] #terminal-header {
+    background: #334155;
+    border-bottom: 1px solid #475569;
+    color: #cbd5e1;
+}
+
+body.classic-mode #terminal-input {
+    color: #1e293b;
+}
+
+body.classic-mode[data-theme="dark"] #terminal-input {
+    color: #f8fafc;
+}
+
+body.classic-mode #terminal-toggle {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+body.classic-mode #terminal-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 /* Classic Mode Grid & Card Refinement */
@@ -295,9 +333,34 @@ header {
     box-shadow: 0 0 10px var(--accent-color);
 }
 
-/* Style Switcher */
-#style-switch-wrapper {
-    border: 1px solid var(--accent-color);
+/* Header Controls Polish */
+.header-controls > div {
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.header-controls > div:hover {
+    transform: translateY(-2px);
+    opacity: 0.8;
+}
+
+/* Classic Terminal Improvements */
+body.classic-mode #terminal-header .terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+    background: #cbd5e1;
+}
+
+body.classic-mode #terminal-header .dot.red { background: #ff5f56; }
+body.classic-mode #terminal-header .dot.yellow { background: #ffbd2e; }
+body.classic-mode #terminal-header .dot.green { background: #27c93f; }
+
+body.classic-mode .prompt {
+    color: var(--accent-color);
+    font-weight: bold;
+}
     padding: 5px;
     border-radius: 20px;
     cursor: pointer;
@@ -541,39 +604,59 @@ footer a {
     text-decoration: none;
 }
 
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 @media (max-width: 768px) {
     header {
-        padding: 0.8rem 3%;
+        padding: 0.6rem 3%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 5px;
     }
 
     .logo {
-        font-size: 1.2rem;
-        letter-spacing: 2px;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        flex: 1;
     }
 
     #header-title {
-        display: none; /* Hide middle title on mobile to prevent overlapping */
+        display: none;
+    }
+
+    .header-controls {
+        display: flex;
+        gap: 10px;
+        align-items: center;
     }
 
     #language-switcher {
-        gap: 5px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding-top: 5px;
+        border-top: 1px solid var(--glass-border);
+        margin-top: 5px;
     }
 
     #language-switcher button {
         font-size: 1rem;
-        padding: 2px 5px;
+        padding: 3px 6px;
     }
+}
 
-    #theme-switch-wrapper {
-        width: 30px;
-        height: 30px;
+@media (max-width: 400px) {
+    .logo {
+        font-size: 1rem;
     }
-
-    .main-container {
-        grid-template-columns: 1fr;
-    }
-    h1 {
-        font-size: 2.5rem;
+    
+    .header-controls {
+        gap: 5px;
     }
 }
 

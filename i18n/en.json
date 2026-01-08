@@ -1,6 +1,6 @@
 {
-    "headerTitle": "VADZIM H. // RED_PROTOCOLS",
-    "mainTitle": "AI_ENGINEER",
+    "headerTitle": "VADZIM HASTSIAYEU // RED_PROTOCOLS",
+    "mainTitle": "AI_ARCHITECT",
     "aboutTitle": ">> [LOAD_ABOUT]",
     "about": {
         "p1": "Systems Architect and former 42 Paris operative. Specialized in high-efficiency Python engineering and data lifecycle management.",
@@ -47,13 +47,29 @@
         "followers": "NODES_WATCHING",
         "gists": "GISTS_SHARED"
     },
+    "nameLabel": "IDENTIFIER",
+    "namePlaceholder": "User_Name_00",
+    "emailLabel": "NODE_ADDRESS",
+    "emailPlaceholder": "node@ethernet.io",
+    "messageLabel": "DATA_PAYLOAD",
+    "messagePlaceholder": "Encrypt your transmission...",
+    "submitBtn": "INITIALize_UPLINK",
+    "footerRights": "© 2026 Vadzim Hastsiaveu. Security protocols active.",
     "classic": {
-        "headerTitle": "Vadzim H. | Python Developer & Data Analyst",
-        "mainTitle": "FULLSTACK DEVELOPER",
-        "aboutTitle": "About Me",
-        "skillsTitle": "My Skills",
-        "projectsTitle": "My Projects",
+        "headerTitle": "Vadzim HASTSIAYEU | AI Solutions Architect",
+        "mainTitle": "AI ARCHITECTURE & BIG DATA",
+        "aboutTitle": "Professional Profile",
+        "skillsTitle": "Technical Expertise",
+        "projectsTitle": "Projects & Achievements",
         "contactTitle": "Contact Me",
+        "nameLabel": "Full Name",
+        "namePlaceholder": "e.g. John Doe",
+        "emailLabel": "Email Address",
+        "emailPlaceholder": "name@example.com",
+        "messageLabel": "Your Message",
+        "messagePlaceholder": "How can I help you?",
+        "submitBtn": "Send Message",
+        "footerRights": "© 2026 Vadzim Hastsiaveu. All rights reserved.",
         "statsTitle": "GitHub Statistics",
         "stats": {
             "repos": "Public Repos",
@@ -63,3 +79,4 @@
         }
     }
 }
+

@@ -36,23 +36,25 @@
             <button data-lang="en" title="English">🇬🇧</button>
             <button data-lang="ru" title="Русский">🇷🇺</button>
         </div> 
-        <div id="audio-toggle" title="Toggle Sound">
-            <i class="fas fa-volume-up"></i>
-        </div>
-        <div id="theme-switch-wrapper">
-            <div id="theme-coin">
-                <div class="coin-face coin-front">
-                    <i class="fas fa-moon"></i>
-                </div>
-                <div class="coin-face coin-back">
-                    <i class="fas fa-sun"></i>
+        <div class="header-controls">
+            <div id="audio-toggle" title="Toggle Sound">
+                <i class="fas fa-volume-up"></i>
+            </div>
+            <div id="theme-switch-wrapper">
+                <div id="theme-coin">
+                    <div class="coin-face coin-front">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="coin-face coin-back">
+                        <i class="fas fa-sun"></i>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="style-switch-wrapper" title="Switch to Standard/Cyberpunk Mode">
-            <div id="style-toggle-inner">
-                <span class="style-icon mode-os"><i class="fas fa-microchip"></i></span>
-                <span class="style-icon mode-classic"><i class="fas fa-user-tie"></i></span>
+            <div id="style-switch-wrapper" title="Switch to Standard/Cyberpunk Mode">
+                <div id="style-toggle-inner">
+                    <span class="style-icon mode-os"><i class="fas fa-microchip"></i></span>
+                    <span class="style-icon mode-classic"><i class="fas fa-user-tie"></i></span>
+                </div>
             </div>
         </div>
     </header>
@@ -206,22 +208,22 @@
                     </div>
                     <form id="neural-form" action="https://formspree.io/f/xyzkpvqy" method="POST">
                         <div class="input-group">
-                            <label for="name">IDENTIFIER</label>
-                            <input type="text" id="name" name="name" required placeholder="User_Name_00">
+                            <label for="name" data-i18n="nameLabel">IDENTIFIER</label>
+                            <input type="text" id="name" name="name" required placeholder="User_Name_00" data-i18n="namePlaceholder">
                             <div class="scan-line"></div>
                         </div>
                         <div class="input-group">
-                            <label for="email">NODE_ADDRESS</label>
-                            <input type="email" id="email" name="email" required placeholder="node@ethernet.io">
+                            <label for="email" data-i18n="emailLabel">NODE_ADDRESS</label>
+                            <input type="email" id="email" name="email" required placeholder="node@ethernet.io" data-i18n="emailPlaceholder">
                             <div class="scan-line"></div>
                         </div>
                         <div class="input-group">
-                            <label for="message">DATA_PAYLOAD</label>
-                            <textarea id="message" name="message" required placeholder="Encrypt your transmission..."></textarea>
+                            <label for="message" data-i18n="messageLabel">DATA_PAYLOAD</label>
+                            <textarea id="message" name="message" required placeholder="Encrypt your transmission..." data-i18n="messagePlaceholder"></textarea>
                             <div class="scan-line"></div>
                         </div>
                         <button type="submit" id="submit-link" class="neural-btn">
-                            <span class="btn-text">INITIATE_UPLINK</span>
+                            <span class="btn-text" data-i18n="submitBtn">INITIATE_UPLINK</span>
                             <i class="fas fa-satellite-dish"></i>
                         </button>
                         <p id="form-feedback" class="status-msg" style="display: none; margin-top: 1rem;"></p>
@@ -232,7 +234,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Mon Portfolio</p>
+        <p data-i18n="footerRights">&copy; 2026 Vadzim Hastsiaveu. Tous droits réservés.</p>
         <p id="contact-line">
             <span data-i18n="contact">📫 Contact :</span> <a href="mailto:vadzimhast@hotmail.com">vadzimhast@hotmail.com</a>
         </p>
