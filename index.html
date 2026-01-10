@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Three.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div id="matrix-loader">
@@ -110,19 +111,23 @@
                 </section>
             
                 <section id="skills">
-                <h2 data-i18n="skillsTitle">🛠️ Compétences</h2>
-                <div class="skills-list">
-                    <span class="badge badge-python">Python</span>
-                    <span class="badge badge-sql">SQL</span>
-                    <span class="badge badge-nosql">noSQL</span>
-                    <span class="badge badge-git">Git</span>
-                    <span class="badge badge-c">C</span>
-                    <span class="badge badge-docker">Docker</span>
-                    <span class="badge badge-html">Html</span>
-                    <span class="badge badge-css">Css</span>
-                    <span class="badge badge-javascript">JavaScript</span>
-                    <span class="badge badge-bash">Bash</span>
-                </div>
+                    <h2 data-i18n="skillsTitle">🛠️ Compétences</h2>
+                    <div class="chart-container">
+                        <canvas id="stack-chart"></canvas>
+                    </div>
+                    <div class="skills-list" id="dynamic-skills">
+                        <!-- Statiques par défaut, mis à jour par GitHub -->
+                        <span class="badge badge-python">Python</span>
+                        <span class="badge badge-sql">SQL</span>
+                        <span class="badge badge-nosql">noSQL</span>
+                        <span class="badge badge-git">Git</span>
+                        <span class="badge badge-c">C</span>
+                        <span class="badge badge-docker">Docker</span>
+                        <span class="badge badge-html">Html</span>
+                        <span class="badge badge-css">Css</span>
+                        <span class="badge badge-javascript">JavaScript</span>
+                        <span class="badge badge-bash">Bash</span>
+                    </div>
                 </section>
             </div>
 
@@ -169,16 +174,16 @@
                         <div class="stat-label" data-i18n="stats.repos">REPOS_DEPLOYED</div>
                     </div>
                     <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="stat-value" id="github-stars">--</div>
-                        <div class="stat-label" data-i18n="stats.stars">STARS_EARNED</div>
+                        <div class="stat-value" id="github-lang">--</div>
+                        <div class="stat-label" data-i18n="stats.lang">CORE_TECH</div>
                     </div>
                     <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="stat-value" id="github-followers">--</div>
-                        <div class="stat-label" data-i18n="stats.followers">NODES_WATCHING</div>
+                        <div class="stat-value" id="github-xp">--</div>
+                        <div class="stat-label" data-i18n="stats.xp">SYSTEM_UPTIME</div>
                     </div>
                     <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="stat-value" id="github-commits">--</div>
-                        <div class="stat-label" data-i18n="stats.gists">GISTS_SHARED</div>
+                        <div class="stat-value" id="github-activity">--</div>
+                        <div class="stat-label" data-i18n="stats.activity">ACTION_PULSES</div>
                     </div>
                 </div>
                 <div id="github-recent-activity" class="activity-feed">

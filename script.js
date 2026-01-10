@@ -462,8 +462,9 @@ const GitHubStats = {
             const eventsData = await eventsRes.json();
 
             if (userData.id) {
-                this.updateStats(userData, reposData);
+                this.updateStats(userData, reposData, eventsData);
                 this.updateActivity(eventsData);
+                this.updateStack(reposData);
                 console.log("> DATALINK_ESTABLISHED: GITHUB_ANALYTICS_LOADED");
             } else {
                 throw new Error("User not found");
@@ -474,14 +475,25 @@ const GitHubStats = {
         }
     },
 
-    updateStats(user, repos) {
+    updateStats(user, repos, events) {
+        // 1. Repos Count
         document.getElementById('github-repos').textContent = user.public_repos;
-        document.getElementById('github-followers').textContent = user.followers;
         
-        const stars = repos.reduce((acc, repo) => acc + repo.stargazers_count, 0);
-        document.getElementById('github-stars').textContent = stars;
+        // 2. Main Language (Top language by project count)
+        const langs = repos.map(r => r.language).filter(l => l);
+        const topLang = langs.sort((a,b) =>
+            langs.filter(v => v===a).length - langs.filter(v => v===b).length
+        ).pop() || "Python";
+        document.getElementById('github-lang').textContent = topLang;
 
-        document.getElementById('github-commits').textContent = user.public_gists;
+        // 3. XP (Account age in years)
+        const created = new Date(user.created_at);
+        const now = new Date();
+        const years = now.getFullYear() - created.getFullYear();
+        document.getElementById('github-xp').textContent = years > 0 ? years + " YRS" : "< 1 YR";
+
+        // 4. Activity (Recent Action count from logs)
+        document.getElementById('github-activity').textContent = events.length || 0; 
     },
 
     updateActivity(events) {
@@ -512,6 +524,106 @@ const GitHubStats = {
 
             item.innerHTML = `> ${date}: ${action} <span class="repo-name">${repoName}</span>`;
             container.appendChild(item);
+        });
+    },
+
+    updateStack(repos) {
+        const langCounts = {};
+        repos.forEach(repo => {
+            if (repo.language) {
+                // Utilisation de la taille du projet (repo.size) comme poids 
+                // au lieu de simplement compter le nombre de dépôts.
+                // Cela reflète mieux l'investissement réel en code.
+                langCounts[repo.language] = (langCounts[repo.language] || 0) + (repo.size || 1);
+            }
+        });
+
+        // Conversion en tableau et tri par "poids" de code
+        const sortedLangs = Object.entries(langCounts)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 6);
+
+        this.renderChart(sortedLangs);
+        this.renderBadges(sortedLangs);
+
+        // Store for theme updates
+        this.currentLangsData = sortedLangs;
+        
+        // Listen for theme changes to refresh chart colors
+        document.body.addEventListener('themeChanged', () => {
+            if (this.currentLangsData) {
+                this.renderChart(this.currentLangsData);
+            }
+        });
+    },
+
+    renderChart(langs) {
+        const ctx = document.getElementById('stack-chart').getContext('2d');
+        if (this.chart) this.chart.destroy();
+
+        const isClassic = document.body.classList.contains('classic-mode');
+        const accentColor = getComputedStyle(document.body).getPropertyValue('--accent-color').trim();
+        const secondaryColor = getComputedStyle(document.body).getPropertyValue('--secondary-accent').trim();
+
+        this.chart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: langs.map(l => l[0]),
+                datasets: [{
+                    data: langs.map(l => l[1]),
+                    backgroundColor: [
+                        accentColor,
+                        secondaryColor,
+                        '#2ecc71',
+                        '#3498db',
+                        '#9b59b6',
+                        '#f1c40f'
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) label += ': ';
+                                if (context.parsed !== null) {
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((context.parsed / total) * 100);
+                                    label += percentage + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                cutout: '70%'
+            }
+        });
+    },
+
+    renderBadges(langs) {
+        const container = document.getElementById('dynamic-skills');
+        if (!container) return;
+        
+        // Keep original static badges as base, but update/add from GitHub
+        const existingBadges = Array.from(container.querySelectorAll('.badge')).map(b => b.textContent.toLowerCase());
+        
+        langs.forEach(([name, count]) => {
+            if (!existingBadges.includes(name.toLowerCase())) {
+                const badge = document.createElement('span');
+                badge.className = `badge badge-${name.toLowerCase()}`;
+                badge.textContent = name;
+                container.appendChild(badge);
+            }
         });
     }
 };

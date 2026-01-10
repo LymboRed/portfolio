@@ -8,7 +8,7 @@
         "p3": "Continuous learning via OpenClassrooms, Udemy, Coursera, edX, and community-driven knowledge bases like freeCodeCamp.",
         "p4": "Trilingual Specialist: RU | EN | FR. Dedicated to optimizing complex systems and building scalable tech solutions for global entities."
     },
-    "skillsTitle": ">> [SKILLS_MATRIX]",
+    "skillsTitle": ">> [TECH_STACK]",
     "projectsTitle": ">> [ACTIVE_NODES]",
     "projects": [
         {
@@ -43,9 +43,9 @@
     "statsTitle": "📊 ANALYTICS_DASHBOARD",
     "stats": {
         "repos": "REPOS_DEPLOYED",
-        "stars": "STARS_EARNED",
-        "followers": "NODES_WATCHING",
-        "gists": "GISTS_SHARED"
+        "lang": "CORE_TECH",
+        "xp": "SYSTEM_UPTIME",
+        "activity": "SYSTEM_PULSE"
     },
     "nameLabel": "IDENTIFIER",
     "namePlaceholder": "User_Name_00",
@@ -59,7 +59,7 @@
         "headerTitle": "Vadzim HASTSIAYEU | AI Solutions Architect",
         "mainTitle": "AI ARCHITECTURE & BIG DATA",
         "aboutTitle": "Professional Profile",
-        "skillsTitle": "Technical Expertise",
+        "skillsTitle": "Tech Stack",
         "projectsTitle": "Projects & Achievements",
         "contactTitle": "Contact Me",
         "nameLabel": "Full Name",
@@ -72,10 +72,10 @@
         "footerRights": "© 2026 Vadzim Hastsiaveu. All rights reserved.",
         "statsTitle": "GitHub Statistics",
         "stats": {
-            "repos": "Public Repos",
-            "stars": "GitHub Stars",
-            "followers": "Followers",
-            "gists": "Public Gists"
+            "repos": "Open Source Projects",
+            "lang": "Primary Stack",
+            "xp": "GitHub Longevity",
+            "activity": "Recent Activity"
         }
     }
 }

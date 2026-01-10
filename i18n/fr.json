@@ -8,7 +8,7 @@
         "p3": "Apprentissage continu via OpenClassrooms, Udemy, Coursera, edX et bases de connaissances communautaires.",
         "p4": "Spécialiste Trilingue : RU | EN | FR. Dédié à l'optimisation de systèmes complexes et à la création de solutions technologiques scalables pour entités globales."
     },
-    "skillsTitle": ">> [SKILLS_MATRIX]",
+    "skillsTitle": ">> [TECH_STACK]",
     "projectsTitle": ">> [ACTIVE_NODES]",
     "projects": [
         {
@@ -43,9 +43,9 @@
     "statsTitle": "📊 DASHBOARD_ANALYTIQUE",
     "stats": {
         "repos": "REPOS_DÉPLOYÉS",
-        "stars": "ÉTOILES_OBTENUES",
-        "followers": "NODES_EN_VEILLE",
-        "gists": "GISTS_PARTAGÉS"
+        "lang": "CORE_TECH",
+        "xp": "SYSTEM_UPTIME",
+        "activity": "PULSE_SYSTÈME"
     },
     "nameLabel": "IDENTIFIANT",
     "namePlaceholder": "Nom_Utilisateur_00",
@@ -59,7 +59,7 @@
         "headerTitle": "Vadzim HASTSIAYEU | Architecte IA",
         "mainTitle": "ARCHITECTE IA & BIG DATA",
         "aboutTitle": "Profil Professionnel",
-        "skillsTitle": "Expertise Technique",
+        "skillsTitle": "Stack Technique",
         "projectsTitle": "Projets & Réalisations",
         "contactTitle": "Me Contacter",
         "nameLabel": "Nom complet",
@@ -72,10 +72,10 @@
         "footerRights": "© 2026 Vadzim Hastsiaveu. Tous droits réservés.",
         "statsTitle": "Statistiques GitHub",
         "stats": {
-            "repos": "Dépôts Publics",
-            "stars": "Étoiles GitHub",
-            "followers": "Abonnés",
-            "gists": "Gists Publics"
+            "repos": "Projets Open Source",
+            "lang": "Langage Principal",
+            "xp": "Ancienneté GitHub",
+            "activity": "Activité Récente"
         }
     }
 }
