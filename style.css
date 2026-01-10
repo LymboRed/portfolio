@@ -29,7 +29,7 @@ body.classic-mode[data-theme="dark"] {
 }
 
 body.classic-mode, 
-body.classic-mode * {
+body.classic-mode *:not(i) {
     font-family: 'Poppins', sans-serif !important;
 }
 
