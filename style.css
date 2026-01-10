@@ -361,6 +361,9 @@ body.classic-mode .prompt {
     color: var(--accent-color);
     font-weight: bold;
 }
+
+#style-switch-wrapper {
+    border: 1px solid var(--accent-color);
     padding: 5px;
     border-radius: 20px;
     cursor: pointer;
@@ -377,9 +380,20 @@ body.classic-mode .prompt {
 
 #style-switch-wrapper .style-icon {
     font-size: 0.9rem;
-    padding: 5px 8px;
+    padding: 5px 10px;
     border-radius: 15px;
-    transition: all 0.3s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#style-switch-wrapper .style-icon i {
+    transition: transform 0.3s ease;
+}
+
+#style-switch-wrapper:hover .style-icon i {
+    transform: scale(1.15);
 }
 
 body:not(.classic-mode) .mode-os {
@@ -392,6 +406,17 @@ body.classic-mode .mode-classic {
     background: var(--accent-color);
     color: var(--bg-color);
     box-shadow: 0 0 8px var(--accent-color);
+}
+
+/* Style Switcher highlights in Classic Mode */
+body.classic-mode .mode-os {
+    color: #64748b; /* Desaturated in classic mode until hover */
+    opacity: 0.6;
+}
+
+body.classic-mode .mode-os:hover {
+    color: #00ff41; /* Cyber green on hover even in classic mode */
+    opacity: 1;
 }
 
 #audio-toggle.muted {
@@ -443,11 +468,26 @@ body.classic-mode #theme-switch-wrapper {
 
 .coin-back {
     transform: rotateY(180deg);
-    color: #fbbf24; /* Sun color */
+    color: #f59e0b; /* Warmer Sun color */
 }
 
 .coin-front {
-    color: #11765d; /* Emerald color */
+    color: #4f46e5; /* Professional Indigo for Moon/Dark mode */
+}
+
+/* Classic Mode Specific Adjustments for Theme Coin */
+body.classic-mode .coin-face {
+    border-width: 1px;
+    background: #ffffff;
+}
+
+body.classic-mode[data-theme="dark"] .coin-face {
+    background: #1e293b;
+    border-color: var(--accent-color);
+}
+
+body.classic-mode[data-theme="dark"] .coin-front {
+    color: #f8fafc;
 }
 
 .coin-flipped #theme-coin {
