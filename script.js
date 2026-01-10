@@ -263,9 +263,9 @@ let savedStyle = localStorage.getItem('portfolio_style') || 'classic'; // Defaul
 
 if (savedStyle === 'classic') {
     body.classList.add('classic-mode');
-    if (styleText) styleText.textContent = '> CLASSIC';
+    if (styleText) styleText.textContent = '> CYBER'; // Show target mode
 } else {
-    if (styleText) styleText.textContent = '> CYBER';
+    if (styleText) styleText.textContent = '> CLASSIC'; // Show target mode
 }
 
 // Check for saved theme
@@ -308,7 +308,7 @@ styleSwitch.addEventListener('click', () => {
     localStorage.setItem('portfolio_style', newStyle);
     
     if (styleText) {
-        styleText.textContent = isClassic ? '> CLASSIC' : '> CYBER';
+        styleText.textContent = isClassic ? '> CYBER' : '> CLASSIC';
     }
     
     console.log(`> SWITCHING_INTERFACE_MODE: ${newStyle.toUpperCase()}`);
