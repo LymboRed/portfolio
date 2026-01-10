@@ -256,14 +256,31 @@ qrModal.addEventListener('click', (e) => {
     }
 });
 
+// Style Switcher (LymboOS vs Classic)
+const styleSwitch = document.getElementById('style-switch-wrapper');
+let savedStyle = localStorage.getItem('portfolio_style') || 'classic'; // Default to classic
+
+if (savedStyle === 'classic') {
+    body.classList.add('classic-mode');
+}
+
 // Check for saved theme
-const savedTheme = localStorage.getItem('theme') || 'light';
+let savedTheme = localStorage.getItem('theme') || 'light';
+
+// Force dark theme if in OS mode (only classic mode supports light theme now)
+if (!body.classList.contains('classic-mode')) {
+    savedTheme = 'dark';
+}
+
 body.setAttribute('data-theme', savedTheme);
 if (savedTheme === 'dark') {
     body.classList.add('coin-flipped');
 }
 
 themeSwitch.addEventListener('click', () => {
+    // Theme switch only works in classic mode now (UI will be hidden in OS mode)
+    if (!body.classList.contains('classic-mode')) return;
+
     SoundManager.starCoin();
     const currentTheme = body.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
@@ -280,14 +297,6 @@ themeSwitch.addEventListener('click', () => {
     }, 300);
 });
 
-// Style Switcher (LymboOS vs Classic)
-const styleSwitch = document.getElementById('style-switch-wrapper');
-const savedStyle = localStorage.getItem('portfolio_style') || 'os';
-
-if (savedStyle === 'classic') {
-    body.classList.add('classic-mode');
-}
-
 styleSwitch.addEventListener('click', () => {
     SoundManager.click();
     const isClassic = body.classList.toggle('classic-mode');
@@ -295,17 +304,29 @@ styleSwitch.addEventListener('click', () => {
     localStorage.setItem('portfolio_style', newStyle);
     
     console.log(`> SWITCHING_INTERFACE_MODE: ${newStyle.toUpperCase()}`);
+
+    // If switching to OS mode, force dark theme
+    if (!isClassic) {
+        if (body.getAttribute('data-theme') !== 'dark') {
+            body.classList.add('coin-flipped');
+            setTimeout(() => {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }, 300);
+        }
+    }
     
     // Refresh language to apply classic/cyber titles
     const currentLang = document.body.dataset.lang || 'fr';
     updateLanguage(currentLang);
     
-    // Trigger theme change event to update 3D brain colors to new classic accent
+    // Trigger theme change event to update 3D brain colors
     setTimeout(() => {
+        const theme = body.getAttribute('data-theme');
         document.body.dispatchEvent(new CustomEvent('themeChanged', { 
-            detail: { theme: body.getAttribute('data-theme'), style: newStyle } 
+            detail: { theme: theme, style: newStyle } 
         }));
-    }, 50);
+    }, 350); // Increased delay to account for potential theme flip
 });
 // --- Terminal CLI Logic ---
 const TerminalHandler = {

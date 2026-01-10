@@ -402,10 +402,15 @@ body.classic-mode .mode-classic {
 
 /* Theme Coin Toggle */
 #theme-switch-wrapper {
+    display: none; /* Hidden by default in CyberOS mode */
     perspective: 1000px;
     width: 40px;
     height: 40px;
     cursor: pointer;
+}
+
+body.classic-mode #theme-switch-wrapper {
+    display: block; /* Only show in classic mode */
 }
 
 #theme-coin {
