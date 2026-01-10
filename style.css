@@ -363,60 +363,28 @@ body.classic-mode .prompt {
 }
 
 #style-switch-wrapper {
-    border: 1px solid var(--accent-color);
-    padding: 5px;
-    border-radius: 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
     transition: all 0.3s ease;
-    background: var(--glass-bg);
+    padding: 0 10px;
 }
 
-#style-toggle-inner {
-    display: flex;
-    gap: 10px;
+.style-text-toggle {
+    font-weight: 900;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+    text-shadow: 1px 1px var(--secondary-accent);
+    -webkit-text-stroke: 0.3px var(--accent-color);
+    font-family: var(--font-mono) !important;
+    transition: all 0.3s ease;
+    user-select: none;
 }
 
-#style-switch-wrapper .style-icon {
-    font-size: 0.9rem;
-    padding: 5px 10px;
-    border-radius: 15px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#style-switch-wrapper .style-icon i {
-    transition: transform 0.3s ease;
-}
-
-#style-switch-wrapper:hover .style-icon i {
-    transform: scale(1.15);
-}
-
-body:not(.classic-mode) .mode-os {
-    background: var(--accent-color);
-    color: var(--bg-color);
-    box-shadow: 0 0 8px var(--accent-color);
-}
-
-body.classic-mode .mode-classic {
-    background: var(--accent-color);
-    color: var(--bg-color);
-    box-shadow: 0 0 8px var(--accent-color);
-}
-
-/* Style Switcher highlights in Classic Mode */
-body.classic-mode .mode-os {
-    color: #64748b; /* Desaturated in classic mode until hover */
-    opacity: 0.6;
-}
-
-body.classic-mode .mode-os:hover {
-    color: #00ff41; /* Cyber green on hover even in classic mode */
-    opacity: 1;
+#style-switch-wrapper:hover .style-text-toggle {
+    text-shadow: 2px 2px var(--secondary-accent), 0 0 10px var(--accent-color);
+    transform: scale(1.05);
 }
 
 #audio-toggle.muted {
@@ -671,6 +639,11 @@ footer a {
 
     #header-title {
         display: none;
+    }
+
+    .style-text-toggle {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
     }
 
     .header-controls {

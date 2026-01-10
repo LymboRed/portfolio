@@ -258,10 +258,14 @@ qrModal.addEventListener('click', (e) => {
 
 // Style Switcher (LymboOS vs Classic)
 const styleSwitch = document.getElementById('style-switch-wrapper');
+const styleText = document.getElementById('style-switch-text');
 let savedStyle = localStorage.getItem('portfolio_style') || 'classic'; // Default to classic
 
 if (savedStyle === 'classic') {
     body.classList.add('classic-mode');
+    if (styleText) styleText.textContent = '> CLASSIC';
+} else {
+    if (styleText) styleText.textContent = '> CYBER';
 }
 
 // Check for saved theme
@@ -302,6 +306,10 @@ styleSwitch.addEventListener('click', () => {
     const isClassic = body.classList.toggle('classic-mode');
     const newStyle = isClassic ? 'classic' : 'os';
     localStorage.setItem('portfolio_style', newStyle);
+    
+    if (styleText) {
+        styleText.textContent = isClassic ? '> CLASSIC' : '> CYBER';
+    }
     
     console.log(`> SWITCHING_INTERFACE_MODE: ${newStyle.toUpperCase()}`);
 
