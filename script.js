@@ -303,26 +303,29 @@ themeSwitch.addEventListener('click', () => {
 
 styleSwitch.addEventListener('click', () => {
     SoundManager.click();
-    const isClassic = body.classList.toggle('classic-mode');
-    const newStyle = isClassic ? 'classic' : 'os';
+    const isClassic = body.classList.contains('classic-mode');
+    const targetIsClassic = !isClassic;
+    const newStyle = targetIsClassic ? 'classic' : 'os';
+    
+    // If switching to OS mode and current theme is light, 
+    // we need to switch theme AND style simultaneously to avoid flashing
+    if (!targetIsClassic && body.getAttribute('data-theme') !== 'dark') {
+        // 1. Force dark theme immediately without waiting for animation 
+        // OR start animation and delay style switch.
+        // Let's force it to avoid the "light cyber" flash.
+        body.classList.add('coin-flipped');
+        body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+
+    body.classList.toggle('classic-mode');
     localStorage.setItem('portfolio_style', newStyle);
     
     if (styleText) {
-        styleText.textContent = isClassic ? '> CYBER' : '> CLASSIC';
+        styleText.textContent = targetIsClassic ? '> CYBER' : '> CLASSIC';
     }
     
     console.log(`> SWITCHING_INTERFACE_MODE: ${newStyle.toUpperCase()}`);
-
-    // If switching to OS mode, force dark theme
-    if (!isClassic) {
-        if (body.getAttribute('data-theme') !== 'dark') {
-            body.classList.add('coin-flipped');
-            setTimeout(() => {
-                body.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            }, 300);
-        }
-    }
     
     // Refresh language to apply classic/cyber titles
     const currentLang = document.body.dataset.lang || 'fr';
@@ -334,7 +337,7 @@ styleSwitch.addEventListener('click', () => {
         document.body.dispatchEvent(new CustomEvent('themeChanged', { 
             detail: { theme: theme, style: newStyle } 
         }));
-    }, 350); // Increased delay to account for potential theme flip
+    }, 50); 
 });
 // --- Terminal CLI Logic ---
 const TerminalHandler = {
