@@ -61,6 +61,14 @@
         "aboutTitle": "Profil Professionnel",
         "skillsTitle": "Stack Technique",
         "projectsTitle": "Projets & Réalisations",
+        "projects": {
+            "0": { "technosLabel": "Technologies :" },
+            "1": { "technosLabel": "Technologies :" },
+            "2": { "technosLabel": "Technologies :" },
+            "3": { "technosLabel": "Technologies :" },
+            "4": { "technosLabel": "Technologies :" }
+        },
+        "contact": "Contact :",
         "contactTitle": "Me Contacter",
         "nameLabel": "Nom complet",
         "namePlaceholder": "Ex: Jean Dupont",

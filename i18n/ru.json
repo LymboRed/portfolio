@@ -61,6 +61,14 @@
         "aboutTitle": "Профессиональный профиль",
         "skillsTitle": "Технический Стек",
         "projectsTitle": "Проекты и достижения",
+        "projects": {
+            "0": { "technosLabel": "Технологии:" },
+            "1": { "technosLabel": "Технологии:" },
+            "2": { "technosLabel": "Технологии:" },
+            "3": { "technosLabel": "Технологии:" },
+            "4": { "technosLabel": "Технологии:" }
+        },
+        "contact": "Контакты:",
         "contactTitle": "Связаться со мной",
         "nameLabel": "Полное имя",
         "namePlaceholder": "Иван Иванов",

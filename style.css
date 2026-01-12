@@ -36,8 +36,23 @@ body.classic-mode *:not(i) {
 /* Hide OS-specific effects in Classic Mode */
 body.classic-mode::before, 
 body.classic-mode .terminal-overlay,
-body.classic-mode section::before {
+body.classic-mode section::before,
+body.classic-mode .neural-sidebar,
+body.classic-mode .scan-line {
     display: none !important;
+}
+
+body.classic-mode .neural-container {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+body.classic-mode .neural-btn {
+    width: 100%;
+    border-radius: 4px;
+    background: var(--accent-color);
+    color: white;
 }
 
 body.classic-mode header {
@@ -537,6 +552,38 @@ h1::before {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+}
+
+/* Profile Picture Styling */
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.profile-pic-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-color);
+    background: var(--glass-bg);
+    padding: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-pic-container:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 0 25px var(--accent-color), 0 0 10px var(--secondary-accent);
+}
+
+#profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    filter: grayscale(20%) contrast(1.1);
 }
 
 section {
