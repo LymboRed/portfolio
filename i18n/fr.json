@@ -1,10 +1,10 @@
 {
     "headerTitle": "VADZIM HASTSIAYEU // RED_PROTOCOLS",
-    "mainTitle": "ARCHITECTE_IA",
+    "mainTitle": "ARCHITECTE_SOLUTIONS_IA",
     "aboutTitle": ">> [LOAD_ABOUT]",
     "about": {
-        "p1": "Architecte Systèmes et ancien opératif de 42 Paris. Spécialisé en ingénierie Python haute performance et gestion du cycle de vie des données.",
-        "p2": "Expert en architecture C bas niveau, containerisation Docker et schémas SQL/NoSQL. Focalisé sur l'infrastructure IA et les protocoles de sécurité.",
+        "p1": "Architecte Solutions IA de formation 42 Paris, j'allie une expertise technique profonde à une mentalité de Product Builder.",
+        "p2": "Au-delà de l'infrastructure (Python, Docker, SQL), je conçois des produits complets (Web & Mobile), scalables et centrés sur l'utilisateur.",
         "p3": "Apprentissage continu via OpenClassrooms, Udemy, Coursera, edX et bases de connaissances communautaires.",
         "p4": "Spécialiste Trilingue : RU | EN | FR. Dédié à l'optimisation de systèmes complexes et à la création de solutions technologiques scalables pour entités globales."
     },
@@ -56,8 +56,8 @@
     "submitBtn": "INITIALISER_UPLINK",
     "footerRights": "© 2026 Vadzim Hastsiaveu. Protocoles de sécurité activés.",
     "classic": {
-        "headerTitle": "Vadzim HASTSIAYEU | Architecte IA",
-        "mainTitle": "ARCHITECTE IA & BIG DATA",
+        "headerTitle": "Vadzim HASTSIAYEU | Architecte Solutions IA",
+        "mainTitle": "ARCHITECTE SOLUTIONS IA",
         "aboutTitle": "Profil Professionnel",
         "skillsTitle": "Stack Technique",
         "projectsTitle": "Projets & Réalisations",

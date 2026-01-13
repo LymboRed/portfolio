@@ -1,10 +1,10 @@
 {
     "headerTitle": "VADZIM HASTSIAYEU // RED_PROTOCOLS",
-    "mainTitle": "AI_ARCHITECT",
+    "mainTitle": "AI_SOLUTIONS_ARCHITECT",
     "aboutTitle": ">> [LOAD_ABOUT]",
     "about": {
-        "p1": "Systems Architect and former 42 Paris operative. Specialized in high-efficiency Python engineering and data lifecycle management.",
-        "p2": "Proficient in low-level C architecture, Docker containerization, and SQL/NoSQL data schemas. Focused on AI infrastructure and security protocols.",
+        "p1": "AI Solutions Architect from 42 Paris, I bridge the gap between deep technical expertise and a Product Builder mindset.",
+        "p2": "Beyond infrastructure (Python, Docker, SQL), I design high-performance, scalable products (Web & Mobile) focused on user experience.",
         "p3": "Continuous learning via OpenClassrooms, Udemy, Coursera, edX, and community-driven knowledge bases like freeCodeCamp.",
         "p4": "Trilingual Specialist: RU | EN | FR. Dedicated to optimizing complex systems and building scalable tech solutions for global entities."
     },
@@ -57,7 +57,7 @@
     "footerRights": "© 2026 Vadzim Hastsiaveu. Security protocols active.",
     "classic": {
         "headerTitle": "Vadzim HASTSIAYEU | AI Solutions Architect",
-        "mainTitle": "AI ARCHITECTURE & BIG DATA",
+        "mainTitle": "AI SOLUTIONS ARCHITECT",
         "aboutTitle": "Professional Profile",
         "skillsTitle": "Tech Stack",
         "projectsTitle": "Projects & Achievements",

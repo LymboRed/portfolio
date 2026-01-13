@@ -11,11 +11,17 @@ Ce projet est un portfolio personnel moderne, rapide et multilingue, conçu pour
 - **📱 Responsive** : Entièrement optimisé pour mobiles, tablettes et ordinateurs.
 - **🎭 Animations** : Effets de défilement fluides avec la bibliothèque **AOS**.
 
-## 🛠️ Technologies utilisées
+## 🛠️ Stack Technique & Architecture
 
-- **Frontend** : HTML5, CSS3 (Variables, Flexbox, Grid, 3D Transforms), JavaScript ES6+.
-- **Outils** : [Vite](https://vitejs.dev/), NPM.
-- **Bibliothèques** : [AOS](https://michalsnik.github.io/aos/) (Animate On Scroll), [Font Awesome](https://fontawesome.com/).
+- **Moteur Logique (JavaScript ES6+)** : Gestion complète du dynamisme, incluant :
+  - **Système i18n auto-conçu** : Chargement asynchrone des traductions JSON.
+  - **Émulateur de Terminal** : Interpréteur de commandes interactif.
+  - **PWA (Progressive Web App)** : Service Worker pour le cache et l'installation mobile.
+- **Interface & Design (CSS3)** : Design Cyberpunk/Glassmorphism entièrement personnalisé sans framework (Bootstrap/Tailwind).
+- **Rendu 3D** : Intégration de [Three.js](https://threejs.org/) pour les effets visuels avancés.
+- **Outils & Performance** : [Vite](https://vitejs.dev/) pour un bundling optimisé.
+
+*Note : Bien que le CSS occupe une place importante pour le rendu visuel "Pixel Perfect", la complexité du projet réside dans sa logique JavaScript.*
 
 ## 🚀 Installation et Lancement
 

@@ -149,7 +149,7 @@ body.classic-mode h2 {
 body.classic-mode .badge {
     background: #f1f5f9;
     color: #475569;
-    border: none;
+    border: 1px solid #e2e8f0;
 }
 
 body.classic-mode[data-theme="dark"] .badge {
@@ -970,7 +970,14 @@ footer a {
 }
 
 body.classic-mode .stat-card {
-    background: var(--glass-bg);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+body.classic-mode[data-theme="dark"] .stat-card {
+    background: rgba(30, 41, 59, 0.5);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .stat-card:hover {
@@ -1001,6 +1008,17 @@ body.classic-mode .stat-card {
     padding: 1rem;
     border: 1px dashed var(--glass-border);
     font-size: 0.8rem;
+}
+
+body.classic-mode .activity-feed {
+    background: #f8fafc;
+    border-style: solid;
+    border-color: #e2e8f0;
+}
+
+body.classic-mode[data-theme="dark"] .activity-feed {
+    background: rgba(15, 23, 42, 0.5);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .status-msg {
@@ -1096,6 +1114,10 @@ body.classic-mode .stat-card {
     gap: 1.5rem;
 }
 
+body.classic-mode .neural-sidebar {
+    border-right-color: #e2e8f0;
+}
+
 .status-item {
     display: flex;
     flex-direction: column;
@@ -1137,6 +1159,11 @@ body.classic-mode .stat-card {
     margin-bottom: 4px;
 }
 
+body.classic-mode .input-group label {
+    text-shadow: none;
+    font-weight: 600;
+}
+
 .input-group input, 
 .input-group textarea {
     width: 100%;
@@ -1148,6 +1175,20 @@ body.classic-mode .stat-card {
     font-size: 0.9rem;
     outline: none;
     transition: all 0.3s ease;
+}
+
+body.classic-mode .input-group input,
+body.classic-mode .input-group textarea {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #1e293b;
+}
+
+body.classic-mode[data-theme="dark"] .input-group input,
+body.classic-mode[data-theme="dark"] .input-group textarea {
+    background: #0f172a;
+    border-color: #334155;
+    color: #f8fafc;
 }
 
 .input-group input:focus, 
