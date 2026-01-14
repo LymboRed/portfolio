@@ -1008,7 +1008,7 @@ const ProjectManager = {
     actionBtn: document.getElementById('modal-action-btn'),
     
     projectLinks: [
-        "https://github.com/LymboRed", // Pokémon
+        "https://github.com/LymboRed/PokemonOS/blob/main/README.md", // Pokémon
         "https://github.com/LymboRed", // MadLibs
         "https://github.com/LymboRed", // Data Saver
         "https://github.com/LymboRed", // Portfolio
