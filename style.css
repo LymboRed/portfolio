@@ -59,6 +59,7 @@ body.classic-mode header {
     text-transform: none;
     letter-spacing: normal;
     background: var(--bg-color);
+    border-bottom: 1px solid #e5e7eb;
 }
 
 body.classic-mode h1::before,
@@ -183,7 +184,7 @@ body {
 }
 
 /* Background Effects */
-body::before {
+/* body::before {
     content: " ";
     display: block;
     position: fixed;
@@ -195,7 +196,7 @@ body::before {
     z-index: 9999;
     background-size: 100% 2px, 3px 100%;
     pointer-events: none;
-}
+} */
 
 /* Matrix Loader */
 #matrix-loader {
@@ -293,7 +294,8 @@ header {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     background: var(--glass-bg);
-    border-bottom: 2px solid var(--accent-color);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -691,7 +693,8 @@ footer {
     padding: 4rem 2rem;
     margin-top: 4rem;
     background: var(--bg-color);
-    border-top: 2px solid var(--accent-color);
+    border-top: 1px solid var(--glass-border);
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
     font-size: 0.8rem;
     letter-spacing: 2px;
 }
