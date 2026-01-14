@@ -715,8 +715,11 @@ footer a {
         padding: 1rem 3%;
     }
 
-    h1 {
-        font-size: 3rem;
+    h1, body.classic-mode h1 {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+        word-break: break-word;
+        line-height: 1.1;
     }
 
     header {
@@ -760,6 +763,12 @@ footer a {
     #language-switcher button {
         font-size: 1rem;
         padding: 3px 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1, body.classic-mode h1 {
+        font-size: 1.8rem;
     }
 }
 
