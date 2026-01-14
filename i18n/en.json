@@ -39,7 +39,7 @@
     ],
     "contact": ">> [TARGET_COMMS]:",
     "contactTitle": ">> [UPLINK_PROTOCOL]",
-    "github": "DOWNLOAD_GIT_REPO",
+    "github": "ACCESS_GITHUB_REPOSITORY",
     "statsTitle": ">> [DATA_ANALYTICS]",
     "stats": {
         "repos": "REPOS_DEPLOYED",

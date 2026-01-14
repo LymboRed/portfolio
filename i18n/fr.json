@@ -39,7 +39,7 @@
     ],
     "contact": ">> [TARGET_COMMS] :",
     "contactTitle": ">> [PROTOCOLE_LIAISON]",
-    "github": "DOWNLOAD_GIT_REPO",
+    "github": "ACCÉDER_AU_REPO_GITHUB",
     "statsTitle": ">> [FLUX_ANALYTIQUE]",
     "stats": {
         "repos": "REPOS_DÉPLOYÉS",
