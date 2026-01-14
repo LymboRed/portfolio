@@ -38,9 +38,9 @@
         }
     ],
     "contact": ">> [TARGET_COMMS]:",
-    "contactTitle": "🧠 ESTABLISH_NEURAL_LINK",
+    "contactTitle": "ESTABLISH_NEURAL_LINK",
     "github": "DOWNLOAD_GIT_REPO",
-    "statsTitle": "📊 ANALYTICS_DASHBOARD",
+    "statsTitle": "ANALYTICS_DASHBOARD",
     "stats": {
         "repos": "REPOS_DEPLOYED",
         "lang": "CORE_TECH",

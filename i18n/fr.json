@@ -38,9 +38,9 @@
         }
     ],
     "contact": ">> [TARGET_COMMS] :",
-    "contactTitle": "🧠 ÉTABLIR_LIEN_NEURAL",
+    "contactTitle": "ÉTABLIR_LIEN_NEURAL",
     "github": "DOWNLOAD_GIT_REPO",
-    "statsTitle": "📊 DASHBOARD_ANALYTIQUE",
+    "statsTitle": "DASHBOARD_ANALYTIQUE",
     "stats": {
         "repos": "REPOS_DÉPLOYÉS",
         "lang": "CORE_TECH",
