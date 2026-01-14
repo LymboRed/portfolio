@@ -13,27 +13,32 @@
     "projects": [
         {
             "title": "Simulation: Pokémon OS (Python)",
-            "desc": "Architected a CLI-based combat engine utilizing OOP principles and state management via JSON protocols.",
+            "desc": "Python-based CLI Pokémon battle simulator featuring ASCII Art and dynamic health bars. Implements advanced OOP principles and ANSI-colored interface for an immersive terminal experience.",
+            "technos": "Python, OOP, ASCII Art",
             "technosLabel": "CORE_TECH:"
         },
         {
             "title": "Interface: MadLibs GUI",
             "desc": "Front-end interface development using Tkinter for data input validation and persistent storage logic.",
+            "technos": "Python (Tkinter)",
             "technosLabel": "CORE_TECH:"
         },
         {
             "title": "Protocol: Data Saver",
             "desc": "Built a multi-format export pipeline for data serialization in CSV, PDF, and TXT environments.",
+            "technos": "Python, CSV, FPDF",
             "technosLabel": "CORE_TECH:"
         },
         {
             "title": "System: Portfolio Core",
             "desc": "Custom-built holographic web interface with high-performance CSS and internationalization architecture.",
+            "technos": "HTML, CSS, JS, Three.js",
             "technosLabel": "CORE_TECH:"
         },
         {
             "title": "Node: Task-App Deployment",
             "desc": "Containerized SQLite management application deployed via Docker Compose for localized data isolation.",
+            "technos": "Python, Docker, SQLite, GitHub",
             "technosLabel": "CORE_TECH:"
         }
     ],

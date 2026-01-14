@@ -1037,16 +1037,17 @@ const ProjectManager = {
 
     openModal(index, card) {
         SoundManager.click();
-        const title = card.querySelector('h3').textContent;
-        const desc = card.querySelector('p').textContent;
-        const technos = card.querySelectorAll('p')[1].innerHTML;
-
-        const isClassic = document.body.classList.contains('classic-mode');
-        this.titleContainer.textContent = isClassic ? title : `> ${title.toUpperCase().replace(/\s/g, '_')}`;
         
         const lang = document.body.dataset.lang || 'fr';
         const trans = translations[lang] || {};
+        const isClassic = document.body.classList.contains('classic-mode');
 
+        const title = getNestedValue(trans, `projects.${index}.title`);
+        const desc = getNestedValue(trans, `projects.${index}.desc`);
+        const technosHtml = card.querySelectorAll('p')[1].innerHTML;
+
+        this.titleContainer.textContent = isClassic ? title : `>> [${title.toUpperCase().replace(/\s/g, '_')}]`;
+        
         const statusLabel = isClassic ? 
             getNestedValue(trans, 'classic.modal.status') : 
             getNestedValue(trans, 'modal.status');
@@ -1065,7 +1066,7 @@ const ProjectManager = {
                 </div>
                 <p class="project-desc">${desc}</p>
                 <div class="project-tech-stack" style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,255,65,0.05); border-left: 2px solid var(--accent-color);">
-                    ${technos}
+                    ${technosHtml}
                 </div>
             </div>
         `;

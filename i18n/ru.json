@@ -13,27 +13,32 @@
     "projects": [
         {
             "title": "Симуляция: Pokémon OS (Python)",
-            "desc": "Архитектура боевого движка CLI с применением принципов ООП и управления состоянием через JSON-протоколы.",
+            "desc": "Симулятор покемон-боев на Python в командной строке с ASCII-графикой и динамическими полосками здоровья. Реализует продвинутые принципы ООП и ANSI-интерфейс для глубокого погружения в терминал.",
+            "technos": "Python, ООП, ASCII Art",
             "technosLabel": "CORE_TECH:"
         },
         {
             "title": "Интерфейс: MadLibs GUI",
             "desc": "Разработка фронтенд-интерфейса на Tkinter для валидации данных и логики персистентного хранения.",
+            "technos": "Python (Tkinter)",
             "technosLabel": "CORE_TECH:"
         },
         {
             "title": "Протокол: Data Saver",
             "desc": "Построение конвейера экспорта данных в форматах CSV, PDF и TXT для различных сред.",
+            "technos": "Python, CSV, FPDF",
             "technosLabel": "CORE_TECH:"
         },
         {
             "title": "Система: Portfolio Core",
             "desc": "Собственный голографический веб-интерфейс с высокопроизводительной архитектурой CSS и интернационализацией.",
+            "technos": "HTML, CSS, JS, Three.js",
             "technosLabel": "CORE_TECH:"
         },
         {
             "title": "Узел: Деплой Task-App",
             "desc": "Контейнеризированное приложение управления SQLite, развернутое через Docker Compose для изоляции локальных данных.",
+            "technos": "Python, Docker, SQLite, GitHub",
             "technosLabel": "CORE_TECH:"
         }
     ],
