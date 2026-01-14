@@ -62,7 +62,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('./sw.js')
-                .then(reg => console.log('> PWA_SERVICE_WORKER: REGISTERED'))
+                .then(reg => {
+                    console.log('> PWA_SERVICE_WORKER: REGISTERED');
+                    
+                    // Check for updates periodically
+                    reg.onupdatefound = () => {
+                        const installingWorker = reg.installing;
+                        installingWorker.onstatechange = () => {
+                            if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                // New content available, reload page
+                                console.log('> NEW_UPDATE_FOUND: RELOADING_SYSTEM...');
+                                window.location.reload();
+                            }
+                        };
+                    };
+                })
                 .catch(err => console.log('> PWA_SERVICE_WORKER: FAILED_TO_LINK', err));
         });
     }
