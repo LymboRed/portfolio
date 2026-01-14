@@ -491,10 +491,17 @@ main {
 
 #hologram-container {
     height: 450px;
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     margin: 0 auto;
     cursor: grab;
     filter: drop-shadow(0 0 20px var(--accent-color));
+}
+
+@media (max-width: 768px) {
+    #hologram-container {
+        height: 300px;
+    }
 }
 
 #hologram-container:active {
@@ -701,6 +708,14 @@ footer a {
 }
 
 @media (max-width: 768px) {
+    main {
+        padding: 1rem 3%;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
     header {
         padding: 0.6rem 3%;
         flex-wrap: wrap;
