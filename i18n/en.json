@@ -70,6 +70,7 @@
         },
         "contact": "Contact:",
         "contactTitle": "Contact Me",
+        "github": "View on GitHub",
         "nameLabel": "Full Name",
         "namePlaceholder": "e.g. John Doe",
         "emailLabel": "Email Address",

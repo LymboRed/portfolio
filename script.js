@@ -1000,9 +1000,90 @@ const NeuralLink = {
     }
 };
 
+const ProjectManager = {
+    modal: document.getElementById('project-modal'),
+    closeBtn: document.getElementById('close-project-modal'),
+    detailsContainer: document.getElementById('modal-project-details'),
+    titleContainer: document.getElementById('modal-project-title'),
+    actionBtn: document.getElementById('modal-action-btn'),
+    
+    projectLinks: [
+        "https://github.com/LymboRed", // Pokémon
+        "https://github.com/LymboRed", // MadLibs
+        "https://github.com/LymboRed", // Data Saver
+        "https://github.com/LymboRed", // Portfolio
+        "https://github.com/LymboRed"  // Task-App
+    ],
+
+    init() {
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach((card, index) => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', () => {
+                this.openModal(index, card);
+            });
+        });
+
+        if (this.closeBtn) {
+            this.closeBtn.addEventListener('click', () => this.closeModal());
+        }
+        
+        if (this.modal) {
+            this.modal.addEventListener('click', (e) => {
+                if (e.target === this.modal) this.closeModal();
+            });
+        }
+    },
+
+    openModal(index, card) {
+        SoundManager.click();
+        const title = card.querySelector('h3').textContent;
+        const desc = card.querySelector('p').textContent;
+        const technos = card.querySelectorAll('p')[1].innerHTML;
+
+        const isClassic = document.body.classList.contains('classic-mode');
+        this.titleContainer.textContent = isClassic ? title : `> ${title.toUpperCase().replace(/\s/g, '_')}`;
+        
+        this.detailsContainer.innerHTML = `
+            <div class="project-details">
+                <p class="project-desc">${desc}</p>
+                <div class="project-tech-stack" style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,255,65,0.05); border-left: 2px solid var(--accent-color);">
+                    ${technos}
+                </div>
+            </div>
+        `;
+
+        this.actionBtn.onclick = () => {
+            SoundManager.click();
+            window.open(this.projectLinks[index] || "https://github.com/LymboRed", '_blank');
+        };
+
+        const actionText = document.getElementById('modal-action-text');
+        if (actionText) {
+            const lang = document.body.dataset.lang || 'fr';
+            let githubText = isClassic ? 
+                getNestedValue(translations[lang], 'classic.github') : 
+                getNestedValue(translations[lang], 'github');
+            
+            if (!githubText) githubText = isClassic ? "Voir sur GitHub" : "> ACCESS_GITHUB_REPO";
+            actionText.textContent = githubText;
+        }
+
+        this.modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent scroll
+    },
+
+    closeModal() {
+        SoundManager.click();
+        this.modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     TerminalHandler.init();
     HologramManager.init();
     NeuralLink.init();
     GitHubStats.init();
+    ProjectManager.init();
 });

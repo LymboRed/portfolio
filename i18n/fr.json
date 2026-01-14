@@ -70,6 +70,7 @@
         },
         "contact": "Contact :",
         "contactTitle": "Me Contacter",
+        "github": "Voir sur GitHub",
         "nameLabel": "Nom complet",
         "namePlaceholder": "Ex: Jean Dupont",
         "emailLabel": "Adresse e-mail",

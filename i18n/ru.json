@@ -70,6 +70,7 @@
         },
         "contact": "Контакты:",
         "contactTitle": "Связаться со мной",
+        "github": "Открыть на GitHub",
         "nameLabel": "Полное имя",
         "namePlaceholder": "Иван Иванов",
         "emailLabel": "Электронная почта",
