@@ -1,15 +1,15 @@
 {
     "headerTitle": "VADZIM HASTSIAYEU // RED_PROTOCOLS",
     "mainTitle": "AI_SOLUTIONS_ARCHITECT",
-    "aboutTitle": ">> [LOAD_ABOUT]",
+    "aboutTitle": ">> [SYSTEM_IDENTITY]",
     "about": {
         "p1": "AI Solutions Architect from 42 Paris, I bridge the gap between deep technical expertise and a Product Builder mindset.",
         "p2": "Beyond infrastructure (Python, Docker, SQL), I design high-performance, scalable products (Web & Mobile) focused on user experience.",
         "p3": "Continuous learning via OpenClassrooms, Udemy, Coursera, edX, and community-driven knowledge bases like freeCodeCamp.",
         "p4": "Trilingual Specialist: RU | EN | FR. Dedicated to optimizing complex systems and building scalable tech solutions for global entities."
     },
-    "skillsTitle": ">> [TECH_STACK]",
-    "projectsTitle": ">> [ACTIVE_NODES]",
+    "skillsTitle": ">> [CORE_CAPABILITIES]",
+    "projectsTitle": ">> [EXECUTABLE_MODULES]",
     "projects": [
         {
             "title": "Simulation: Pokémon OS (Python)",
@@ -38,9 +38,9 @@
         }
     ],
     "contact": ">> [TARGET_COMMS]:",
-    "contactTitle": "ESTABLISH_NEURAL_LINK",
+    "contactTitle": ">> [UPLINK_PROTOCOL]",
     "github": "DOWNLOAD_GIT_REPO",
-    "statsTitle": "ANALYTICS_DASHBOARD",
+    "statsTitle": ">> [DATA_ANALYTICS]",
     "stats": {
         "repos": "REPOS_DEPLOYED",
         "lang": "CORE_TECH",

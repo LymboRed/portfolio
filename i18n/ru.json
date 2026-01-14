@@ -1,15 +1,15 @@
 {
     "headerTitle": "VADZIM HASTSIAYEU // RED_PROTOCOLS",
     "mainTitle": "АРХИТЕКТОР_ИИ_РЕШЕНИЙ",
-    "aboutTitle": ">> [LOAD_ABOUT]",
+    "aboutTitle": ">> [ЛИЧНОСТЬ_СИСТЕМЫ]",
     "about": {
         "p1": "Архитектор ИИ-решений (выпускник 42 Paris), я сочетаю глубокую техническую экспертизу с подходом Product Builder.",
         "p2": "Помимо проектирования инфраструктуры (Python, Docker, SQL), я создаю масштабируемые продукты (Web и Mobile), ориентированные на пользователя.",
         "p3": "Постоянное обучение через OpenClassrooms, Udemy, Coursera, edX и сообщества разработчиков.",
         "p4": "Специалист (RU | EN | FR). Нацелен на оптимизацию сложных систем и построение масштабируемых тех-решений для глобальных платформ."
     },
-    "skillsTitle": ">> [TECH_STACK]",
-    "projectsTitle": ">> [ACTIVE_NODES]",
+    "skillsTitle": ">> [ТЕХНИЧЕСКИЙ_СТЕК]",
+    "projectsTitle": ">> [АКТИВНЫЕ_МОДУЛИ]",
     "projects": [
         {
             "title": "Симуляция: Pokémon OS (Python)",
@@ -38,9 +38,9 @@
         }
     ],
     "contact": ">> [TARGET_COMMS]:",
-    "contactTitle": "УСТАНОВИТЬ_НЕЙРОСВЯЗЬ",
+    "contactTitle": ">> [ПРОТОКОЛ_СВЯЗИ]",
     "github": "DOWNLOAD_GIT_REPO",
-    "statsTitle": "ПАНЕЛЬ_АНАЛИТИКИ",
+    "statsTitle": ">> [ПОТОК_АНАЛИТИКИ]",
     "stats": {
         "repos": "РЕПО_РАЗВЕРНУТО",
         "lang": "ОСНОВНОЙ_СТЕК",
