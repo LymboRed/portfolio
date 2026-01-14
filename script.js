@@ -1044,8 +1044,20 @@ const ProjectManager = {
         const isClassic = document.body.classList.contains('classic-mode');
         this.titleContainer.textContent = isClassic ? title : `> ${title.toUpperCase().replace(/\s/g, '_')}`;
         
+        const lang = document.body.dataset.lang || 'fr';
+        const statusLabel = isClassic ? 
+            getNestedValue(translations[lang], 'classic.modal.status') : 
+            getNestedValue(translations[lang], 'modal.status');
+        const statusValue = isClassic ? 
+            getNestedValue(translations[lang], 'classic.modal.active') : 
+            getNestedValue(translations[lang], 'modal.active');
+
         this.detailsContainer.innerHTML = `
             <div class="project-details">
+                <div class="project-status-bar" style="margin-bottom: 1rem; font-size: 0.75rem; letter-spacing: 1px; display: flex; gap: 10px;">
+                    <span style="opacity: 0.6">${statusLabel}</span>
+                    <span style="color: var(--accent-color); font-weight: bold;">${statusValue}</span>
+                </div>
                 <p class="project-desc">${desc}</p>
                 <div class="project-tech-stack" style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,255,65,0.05); border-left: 2px solid var(--accent-color);">
                     ${technos}
