@@ -31,7 +31,7 @@
         },
         {
             "title": "System: Portfolio Core",
-            "desc": "Custom-built holographic web interface with high-performance CSS and internationalization architecture.",
+            "desc": "Custom holographic web interface featuring high-performance CSS and internationalization (i18n). Includes an interactive terminal emulator and 3D rendering with Three.js.",
             "technos": "HTML, CSS, JS, Three.js",
             "technosLabel": "CORE_TECH:"
         },
