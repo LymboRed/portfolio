@@ -57,8 +57,7 @@
     "modal": {
         "status": "STATUT_SYSTÈME :",
         "active": "OPÉRATIONNEL",
-        "github": ">> [ACCÉDER_AUX_SOURCES]",
-        "detailsTitle": ">> [DÉTAILS_DU_NODE]"
+        "github": ">> [ACCÉDER_AUX_SOURCES]"
     },
     "footerRights": "© 2026 Vadzim Hastsiaveu. Protocoles de sécurité activés.",
     "classic": {
@@ -77,8 +76,7 @@
         "modal": {
             "status": "Statut :",
             "active": "Terminé",
-            "github": "Voir sur GitHub",
-            "detailsTitle": "Détails du projet"
+            "github": "Voir sur GitHub"
         },
         "contact": "Contact :",
         "contactTitle": "Me Contacter",

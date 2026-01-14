@@ -1056,12 +1056,6 @@ const ProjectManager = {
         const githubBtnText = isClassic ? 
             getNestedValue(trans, 'classic.modal.github') : 
             getNestedValue(trans, 'modal.github');
-        const modalTitlePrefix = !isClassic ? 
-            getNestedValue(trans, 'modal.detailsTitle') : '';
-
-        if (!isClassic && modalTitlePrefix) {
-            this.titleContainer.textContent = modalTitlePrefix;
-        }
 
         this.detailsContainer.innerHTML = `
             <div class="project-details">
@@ -1069,7 +1063,6 @@ const ProjectManager = {
                     <span style="opacity: 0.6">${statusLabel || 'STATUS:'}</span>
                     <span style="color: var(--accent-color); font-weight: bold;">${statusValue || 'ACTIVE'}</span>
                 </div>
-                <h3 style="margin-bottom: 1rem; color: var(--accent-color); font-size: 1.1rem;">${title}</h3>
                 <p class="project-desc">${desc}</p>
                 <div class="project-tech-stack" style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,255,65,0.05); border-left: 2px solid var(--accent-color);">
                     ${technos}
