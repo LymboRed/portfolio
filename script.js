@@ -1011,7 +1011,7 @@ const ProjectManager = {
         "https://github.com/LymboRed/PokemonOS/blob/main/README.md", // Pokémon
         "https://github.com/LymboRed", // MadLibs
         "https://github.com/LymboRed", // Data Saver
-        "https://github.com/LymboRed", // Portfolio
+        "https://github.com/LymboRed/portfolio/blob/main/README.md", // Portfolio
         "https://github.com/LymboRed"  // Task-App
     ],
 
