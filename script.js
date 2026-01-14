@@ -1045,19 +1045,31 @@ const ProjectManager = {
         this.titleContainer.textContent = isClassic ? title : `> ${title.toUpperCase().replace(/\s/g, '_')}`;
         
         const lang = document.body.dataset.lang || 'fr';
+        const trans = translations[lang] || {};
+
         const statusLabel = isClassic ? 
-            getNestedValue(translations[lang], 'classic.modal.status') : 
-            getNestedValue(translations[lang], 'modal.status');
+            getNestedValue(trans, 'classic.modal.status') : 
+            getNestedValue(trans, 'modal.status');
         const statusValue = isClassic ? 
-            getNestedValue(translations[lang], 'classic.modal.active') : 
-            getNestedValue(translations[lang], 'modal.active');
+            getNestedValue(trans, 'classic.modal.active') : 
+            getNestedValue(trans, 'modal.active');
+        const githubBtnText = isClassic ? 
+            getNestedValue(trans, 'classic.modal.github') : 
+            getNestedValue(trans, 'modal.github');
+        const modalTitlePrefix = !isClassic ? 
+            getNestedValue(trans, 'modal.detailsTitle') : '';
+
+        if (!isClassic && modalTitlePrefix) {
+            this.titleContainer.textContent = modalTitlePrefix;
+        }
 
         this.detailsContainer.innerHTML = `
             <div class="project-details">
-                <div class="project-status-bar" style="margin-bottom: 1rem; font-size: 0.75rem; letter-spacing: 1px; display: flex; gap: 10px;">
-                    <span style="opacity: 0.6">${statusLabel}</span>
-                    <span style="color: var(--accent-color); font-weight: bold;">${statusValue}</span>
+                <div class="project-status-bar" style="margin-bottom: 1.5rem; font-size: 0.75rem; letter-spacing: 1px; display: flex; gap: 10px; border-bottom: 1px dashed rgba(0,255,65,0.2); padding-bottom: 10px;">
+                    <span style="opacity: 0.6">${statusLabel || 'STATUS:'}</span>
+                    <span style="color: var(--accent-color); font-weight: bold;">${statusValue || 'ACTIVE'}</span>
                 </div>
+                <h3 style="margin-bottom: 1rem; color: var(--accent-color); font-size: 1.1rem;">${title}</h3>
                 <p class="project-desc">${desc}</p>
                 <div class="project-tech-stack" style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,255,65,0.05); border-left: 2px solid var(--accent-color);">
                     ${technos}
@@ -1072,13 +1084,7 @@ const ProjectManager = {
 
         const actionText = document.getElementById('modal-action-text');
         if (actionText) {
-            const lang = document.body.dataset.lang || 'fr';
-            let githubText = isClassic ? 
-                getNestedValue(translations[lang], 'classic.github') : 
-                getNestedValue(translations[lang], 'github');
-            
-            if (!githubText) githubText = isClassic ? "Voir sur GitHub" : "> ACCESS_GITHUB_REPO";
-            actionText.textContent = githubText;
+            actionText.textContent = githubBtnText || (isClassic ? "Voir sur GitHub" : "> ACCESS_GITHUB_REPO");
         }
 
         this.modal.style.display = 'flex';

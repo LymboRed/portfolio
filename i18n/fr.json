@@ -56,7 +56,9 @@
     "submitBtn": "INITIALISER_UPLINK",
     "modal": {
         "status": "STATUT_SYSTÈME :",
-        "active": "OPÉRATIONNEL"
+        "active": "OPÉRATIONNEL",
+        "github": ">> [ACCÉDER_AUX_SOURCES]",
+        "detailsTitle": ">> [DÉTAILS_DU_NODE]"
     },
     "footerRights": "© 2026 Vadzim Hastsiaveu. Protocoles de sécurité activés.",
     "classic": {
@@ -74,7 +76,9 @@
         },
         "modal": {
             "status": "Statut :",
-            "active": "Terminé"
+            "active": "Terminé",
+            "github": "Voir sur GitHub",
+            "detailsTitle": "Détails du projet"
         },
         "contact": "Contact :",
         "contactTitle": "Me Contacter",
