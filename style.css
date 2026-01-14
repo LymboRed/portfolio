@@ -534,14 +534,14 @@ h1::after {
     left: 2px;
     text-shadow: -2px 0 var(--secondary-accent);
     clip-path: inset(10% 0 80% 0);
-    animation: glitch-anim 12s infinite linear alternate-reverse;
+    animation: glitch-anim 25s infinite linear alternate-reverse;
 }
 
 h1::before {
     left: -2px;
     text-shadow: 2px 0 var(--accent-color);
     clip-path: inset(80% 0 10% 0);
-    animation: glitch-anim2 12s infinite linear alternate-reverse;
+    animation: glitch-anim2 25s infinite linear alternate-reverse;
 }
 
 @keyframes glitch-anim {

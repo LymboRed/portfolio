@@ -816,10 +816,10 @@ const HologramManager = {
         const lineMaterial = new THREE.LineBasicMaterial({ 
             color: accentColor, 
             transparent: true, 
-            opacity: 0.08 
+            opacity: 0.2 
         });
         
-        for(let i = 0; i < 150; i++) {
+        for(let i = 0; i < 200; i++) {
             const p1 = Math.floor(Math.random() * particleCount);
             // Connect to nearby point for "neural paths"
             const p2 = (p1 + Math.floor(Math.random() * 20)) % particleCount;
