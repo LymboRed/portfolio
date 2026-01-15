@@ -18,9 +18,9 @@
             "technosLabel": "CORE_TECH:"
         },
         {
-            "title": "Interface: MadLibs GUI",
-            "desc": "Front-end interface development using Tkinter for data input validation and persistent storage logic.",
-            "technos": "Python (Tkinter)",
+            "title": "Module: MadLibs AI (Gen-IA)",
+            "desc": "Glassmorphism interface for interactive story creation, combining Tkinter logic with AI image generation via DALL-E 3. Features multilingual support and a persistent gallery.",
+            "technos": "Python (CustomTkinter), OpenAI API (DALL-E 3), Pillow",
             "technosLabel": "CORE_TECH:"
         },
         {
