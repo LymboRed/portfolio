@@ -57,5 +57,12 @@ Assurez-vous d'avoir [Node.js](https://nodejs.org/) installé sur votre machine.
 - `i18n/` : Dictionnaires de traduction (FR, EN, RU).
 - `package.json` : Configuration NPM et scripts Vite.
 
+## 🔗 Projets mis en avant
+
+Certains des projets présentés dans ce portfolio incluent :
+
+- **Pokémon CLI** : [README.md](https://github.com/LymboRed/PokemonOS/blob/main/README.md)
+- **MadLibs GUI** : [README.md](https://github.com/LymboRed/MadLib/blob/main/README.md)
+
 ---
 © 2025 Vadzim HASTSIAYEU - [GitHub](https://github.com/LymboRed)
