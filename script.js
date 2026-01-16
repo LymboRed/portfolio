@@ -1015,6 +1015,10 @@ const ProjectManager = {
         "https://github.com/LymboRed"  // Task-App
     ],
 
+    projectVideos: {
+        1: 'assets/madlib_trailer.mp4'
+    },
+
     init() {
         const projectCards = document.querySelectorAll('.project-card');
         projectCards.forEach((card, index) => {
@@ -1058,8 +1062,19 @@ const ProjectManager = {
             getNestedValue(trans, 'classic.modal.github') : 
             getNestedValue(trans, 'modal.github');
 
+        const videoSrc = this.projectVideos[index];
+        const videoHtml = videoSrc ? `
+            <div class="project-video-container" style="margin-bottom: 1.5rem; border: 1px solid rgba(0,255,65,0.3); border-radius: 4px; overflow: hidden; background: #000; box-shadow: 0 0 15px rgba(0,255,65,0.1);">
+                <video controls autoplay muted playsinline loop width="100%" style="display: block; outline: none;">
+                    <source src="${videoSrc}" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+        ` : '';
+
         this.detailsContainer.innerHTML = `
             <div class="project-details">
+                ${videoHtml}
                 <div class="project-status-bar" style="margin-bottom: 1.5rem; font-size: 0.75rem; letter-spacing: 1px; display: flex; gap: 10px; border-bottom: 1px dashed rgba(0,255,65,0.2); padding-bottom: 10px;">
                     <span style="opacity: 0.6">${statusLabel || 'STATUS:'}</span>
                     <span style="color: var(--accent-color); font-weight: bold;">${statusValue || 'ACTIVE'}</span>
@@ -1087,6 +1102,13 @@ const ProjectManager = {
 
     closeModal() {
         SoundManager.click();
+        
+        // Pause any video playing in the modal
+        const video = this.detailsContainer.querySelector('video');
+        if (video) {
+            video.pause();
+        }
+
         this.modal.style.display = 'none';
         document.body.style.overflow = '';
     }
