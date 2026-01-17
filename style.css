@@ -503,6 +503,7 @@ main {
 @media (max-width: 768px) {
     #hologram-container {
         height: 300px;
+        max-width: none;
     }
 }
 

@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Console greeting
-console.log("%c> LYMBO_OS v2.0.47 INITIALIZED", "color: #00ff41; font-weight: bold; font-size: 14px;");
+console.log("%c> LYMBO_OS v2.0.48 INITIALIZED", "color: #00ff41; font-weight: bold; font-size: 14px;");
 console.log("%c> SYSTEM STATUS: ONLINE", "color: #00ff41;");
 console.log("%c> UNAUTHORIZED ACCESS DETECTED... ACCESS GRANTED", "color: #ff003c;");
 
@@ -374,7 +374,7 @@ Available commands:
   matrix   - Re-run boot sequence
   whoami   - Display user identity`,
         
-        about: () => "LymboOS v2.0.47. Built by Vadzim HASTSIAYEU, AI Solutions Architect. Purpose: Technical excellence and high-performance system architecture.",
+        about: () => "LymboOS v2.0.48. Built by Vadzim HASTSIAYEU, AI Solutions Architect. Purpose: Technical excellence and high-performance system architecture.",
         
         skills: () => "Primary: Python, SQL, Docker, Bash.\nSecondary: JavaScript, C, NoSQL, Git.",
         
