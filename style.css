@@ -503,7 +503,6 @@ main {
 @media (max-width: 768px) {
     #hologram-container {
         height: 300px;
-        max-width: none;
     }
 }
 
@@ -649,17 +648,6 @@ section {
     position: relative;
 }
 
-@media (max-width: 768px) {
-    section {
-        padding: 1.25rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .main-container, .bottom-container, .neural-container {
-        gap: 1.25rem;
-    }
-}
-
 section::before {
     content: "SYSTEM_ACCESS_GRANTED";
     position: absolute;
@@ -746,13 +734,6 @@ footer {
     letter-spacing: 2px;
 }
 
-@media (max-width: 768px) {
-    footer {
-        padding: 3rem 7%;
-        margin-top: 2rem;
-    }
-}
-
 footer a {
     color: var(--accent-color);
     text-decoration: none;
@@ -766,18 +747,18 @@ footer a {
 
 @media (max-width: 768px) {
     main {
-        padding: 1rem 7%;
+        padding: 1rem 3%;
     }
 
     h1, body.classic-mode h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
         letter-spacing: -1px;
         word-break: break-word;
         line-height: 1.1;
     }
 
     header {
-        padding: 0.8rem 7%;
+        padding: 0.5rem 2%;
         flex-wrap: nowrap;
         justify-content: space-between;
         gap: 5px;
@@ -1305,10 +1286,10 @@ body.classic-mode[data-theme="dark"] .activity-feed {
 /* Neural Link Styles */
 #neural-link {
     margin-top: 4rem;
-}
-
-#neural-link h2 {
-    margin-bottom: 1.5rem;
+    padding: 2rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    position: relative;
 }
 
 .neural-container {
