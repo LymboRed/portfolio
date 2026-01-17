@@ -648,6 +648,17 @@ section {
     position: relative;
 }
 
+@media (max-width: 768px) {
+    section {
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .main-container, .bottom-container, .neural-container {
+        gap: 1.25rem;
+    }
+}
+
 section::before {
     content: "SYSTEM_ACCESS_GRANTED";
     position: absolute;
@@ -734,6 +745,13 @@ footer {
     letter-spacing: 2px;
 }
 
+@media (max-width: 768px) {
+    footer {
+        padding: 3rem 5%;
+        margin-top: 2rem;
+    }
+}
+
 footer a {
     color: var(--accent-color);
     text-decoration: none;
@@ -747,7 +765,7 @@ footer a {
 
 @media (max-width: 768px) {
     main {
-        padding: 1rem 3%;
+        padding: 1rem 5%;
     }
 
     h1, body.classic-mode h1 {
@@ -758,7 +776,7 @@ footer a {
     }
 
     header {
-        padding: 0.5rem 2%;
+        padding: 0.8rem 5%;
         flex-wrap: nowrap;
         justify-content: space-between;
         gap: 5px;
@@ -802,7 +820,6 @@ footer a {
     #language-switcher button {
         font-size: 0.8rem;
         padding: 2px 4px;
-    }
     }
 }
 
@@ -1287,10 +1304,10 @@ body.classic-mode[data-theme="dark"] .activity-feed {
 /* Neural Link Styles */
 #neural-link {
     margin-top: 4rem;
-    padding: 2rem;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    position: relative;
+}
+
+#neural-link h2 {
+    margin-bottom: 1.5rem;
 }
 
 .neural-container {
