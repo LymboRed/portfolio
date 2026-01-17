@@ -1,10 +1,12 @@
-const CACHE_NAME = 'lymbo-os-v2.0.50-revert'; // Incremented version
+const CACHE_NAME = 'lymbo-os-v2.0.52-asset-fix'; // Incremented version
 const ASSETS = [
     './',
     './index.html',
+    './manifest.json',
     './style.css',
     './script.js',
     './assets/profile.jpeg',
+    './assets/terminal-icon.svg',
     './assets/madlib_trailer.mp4',
     './i18n/en.json',
     './i18n/fr.json',

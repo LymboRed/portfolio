@@ -374,9 +374,7 @@ Available commands:
   matrix   - Re-run boot sequence
   whoami   - Display user identity`,
         
-        about: () => "LymboOS v2.0.50. Built by Vadzim HASTSIAYEU, AI Solutions Architect. Purpose: Technical excellence and high-performance system architecture.",
-        
-        skills: () => "Primary: Python, SQL, Docker, Bash.\nSecondary: JavaScript, C, NoSQL, Git.",
+        about: () => "LymboOS v2.0.52. Built by Vadzim HASTSIAYEU, AI Solutions Architect. Purpose: Technical excellence and high-performance system architecture.",
         
         projects: () => "1. Pokémon CLI - Game engine\n2. Data Analysis Pipeline - Pandas/NumPy\n3. LymboOS - Current Environment",
         
