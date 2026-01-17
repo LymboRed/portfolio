@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lymbo-os-v2.0.53-manifest-fix'; // Incremented version
+const CACHE_NAME = 'lymbo-os-v2.0.54-final-clean'; // Incremented version
 const ASSETS = [
     './',
     './index.html',
