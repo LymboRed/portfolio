@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Console greeting
-console.log("%c> LYMBO_OS v2.0.54 INITIALIZED", "color: #00ff41; font-weight: bold; font-size: 14px;");
+console.log("%c> LYMBO_OS v2.0.55 INITIALIZED", "color: #00ff41; font-weight: bold; font-size: 14px;");
 console.log("%c> SYSTEM STATUS: ONLINE", "color: #00ff41;");
 console.log("%c> UNAUTHORIZED ACCESS DETECTED... ACCESS GRANTED", "color: #ff003c;");
 
