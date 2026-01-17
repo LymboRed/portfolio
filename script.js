@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Console greeting
-console.log("%c> LYMBO_OS v2.0.50 INITIALIZED", "color: #00ff41; font-weight: bold; font-size: 14px;");
+console.log("%c> LYMBO_OS v2.0.53 INITIALIZED", "color: #00ff41; font-weight: bold; font-size: 14px;");
 console.log("%c> SYSTEM STATUS: ONLINE", "color: #00ff41;");
 console.log("%c> UNAUTHORIZED ACCESS DETECTED... ACCESS GRANTED", "color: #ff003c;");
 
@@ -374,9 +374,7 @@ Available commands:
   matrix   - Re-run boot sequence
   whoami   - Display user identity`,
         
-        about: () => "LymboOS v2.0.52. Built by Vadzim HASTSIAYEU, AI Solutions Architect. Purpose: Technical excellence and high-performance system architecture.",
-        
-        projects: () => "1. Pokémon CLI - Game engine\n2. Data Analysis Pipeline - Pandas/NumPy\n3. LymboOS - Current Environment",
+        about: () => "LymboOS v2.0.53. Built by Vadzim HASTSIAYEU, AI Solutions Architect. Purpose: Technical excellence and high-performance system architecture.",
         
         clear: function() {
             TerminalHandler.output.innerHTML = '';
