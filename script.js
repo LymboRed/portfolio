@@ -1014,7 +1014,7 @@ const ProjectManager = {
 
     projectVideos: {
         1: 'assets/madlib_trailer.mp4',
-        5: 'assets/centraldErreurRecord.mp4'
+        5: 'assets/centraldErreurRecord.mov'
     },
 
     init() {
