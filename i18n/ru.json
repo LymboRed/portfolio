@@ -40,6 +40,12 @@
             "desc": "Контейнеризированное приложение управления SQLite, развернутое через Docker Compose для изоляции локальных данных.",
             "technos": "Python, Docker, SQLite, GitHub",
             "technosLabel": "CORE_TECH:"
+        },
+        {
+            "title": "Система: n8n Мониторинг Ошибок",
+            "desc": "Развертывание централизованной системы мониторинга ошибок на n8n с автоматическими уведомлениями в Telegram для проактивного DevOps управления.",
+            "technos": "n8n, Telegram API, DevOps, Automation",
+            "technosLabel": "CORE_TECH:"
         }
     ],
     "contact": ">> [TARGET_COMMS]:",
@@ -76,7 +82,8 @@
             "1": { "technosLabel": "Технологии:" },
             "2": { "technosLabel": "Технологии:" },
             "3": { "technosLabel": "Технологии:" },
-            "4": { "technosLabel": "Технологии:" }
+            "4": { "technosLabel": "Технологии:" },
+            "5": { "technosLabel": "Технологии:" }
         },
         "modal": {
             "status": "Статус:",

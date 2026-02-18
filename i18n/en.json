@@ -40,6 +40,12 @@
             "desc": "Containerized SQLite management application deployed via Docker Compose for localized data isolation.",
             "technos": "Python, Docker, SQLite, GitHub",
             "technosLabel": "CORE_TECH:"
+        },
+        {
+            "title": "System: n8n Error Monitoring",
+            "desc": "Deployment of a centralized error monitoring system on n8n with automated Telegram alerts for proactive DevOps management.",
+            "technos": "n8n, Telegram API, DevOps, Automation",
+            "technosLabel": "CORE_TECH:"
         }
     ],
     "contact": ">> [TARGET_COMMS]:",
@@ -76,7 +82,8 @@
             "1": { "technosLabel": "Technologies:" },
             "2": { "technosLabel": "Technologies:" },
             "3": { "technosLabel": "Technologies:" },
-            "4": { "technosLabel": "Technologies:" }
+            "4": { "technosLabel": "Technologies:" },
+            "5": { "technosLabel": "Technologies:" }
         },
         "modal": {
             "status": "Status:",

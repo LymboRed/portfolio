@@ -1,0 +1,40 @@
+{
+  "name": "n8n Centralized Error Monitoring with Telegram Alerts",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [0, 0],
+      "name": "Error Trigger"
+    },
+    {
+      "parameters": {
+        "chatId": "YOUR_TELEGRAM_CHAT_ID",
+        "text": "=⚠️ **n8n Error Alert**\n\n📁 Workflow: {{ $json.workflow.name }}\n📉 Failed Node: {{ $json.execution.lastNodeExecuted }}\n❌ Error: {{ $json.execution.error.message }}\n🕒 Time: {{ new Date().toLocaleString() }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [240, 0],
+      "name": "Send Telegram Alert"
+    }
+  ],
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send Telegram Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
