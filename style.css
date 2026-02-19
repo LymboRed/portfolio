@@ -596,11 +596,51 @@ h1::before {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    align-items: start;
+}
+
+#projects {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.projects-carousel {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    max-height: 100%;
+}
+
+/* Custom scrollbar for projects */
+.projects-carousel::-webkit-scrollbar {
+    width: 4px;
+}
+
+.projects-carousel::-webkit-scrollbar-track {
+    background: rgba(0, 255, 65, 0.05);
+}
+
+.projects-carousel::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+@media (min-width: 993px) {
+    .right-container {
+        position: sticky;
+        top: 100px; /* Header height + buffer */
+        height: calc(100vh - 120px);
+    }
 }
 
 @media (max-width: 992px) {
     .main-container {
         grid-template-columns: 1fr;
+    }
+    
+    .right-container {
+        height: 600px; /* Fallback for mobile if needed, or let it flow */
     }
 }
 
