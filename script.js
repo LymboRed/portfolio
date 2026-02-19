@@ -1017,6 +1017,10 @@ const ProjectManager = {
         5: 'assets/centraldErreurRecord.mov'
     },
 
+    projectImages: {
+        0: 'assets/pokemonOS.png'
+    },
+
     init() {
         const projectCards = document.querySelectorAll('.project-card');
         projectCards.forEach((card, index) => {
@@ -1070,9 +1074,17 @@ const ProjectManager = {
             </div>
         ` : '';
 
+        const imgSrc = this.projectImages[index];
+        const imageHtml = imgSrc ? `
+            <div class="project-image-container" style="margin-bottom: 1.5rem; border: 1px solid rgba(0,255,65,0.3); border-radius: 4px; overflow: hidden; background: #000; box-shadow: 0 0 15px rgba(0,255,65,0.1);">
+                <img src="${imgSrc}" alt="${title}" style="width: 100%; display: block;">
+            </div>
+        ` : '';
+
         this.detailsContainer.innerHTML = `
             <div class="project-details">
                 ${videoHtml}
+                ${imageHtml}
                 <div class="project-status-bar" style="margin-bottom: 1.5rem; font-size: 0.75rem; letter-spacing: 1px; display: flex; gap: 10px; border-bottom: 1px dashed rgba(0,255,65,0.2); padding-bottom: 10px;">
                     <span style="opacity: 0.6">${statusLabel || 'STATUS:'}</span>
                     <span style="color: var(--accent-color); font-weight: bold;">${statusValue || 'ACTIVE'}</span>
