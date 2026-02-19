@@ -1009,7 +1009,7 @@ const ProjectManager = {
         "https://github.com/LymboRed", // Data Saver
         "https://github.com/LymboRed/portfolio/blob/main/README.md", // Portfolio
         "https://github.com/LymboRed",  // Task-App
-        "assets/n8n_error_monitoring.json" // n8n Monitoring
+        "https://github.com/LymboRed/n8n-workflows/blob/main/CentraldErreurTemplate.json" // n8n Monitoring
     ],
 
     projectVideos: {
