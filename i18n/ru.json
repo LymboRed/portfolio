@@ -46,6 +46,12 @@
             "desc": "Развертывание централизованной системы мониторинга ошибок на n8n с автоматическими уведомлениями в Telegram для проактивного DevOps управления.",
             "technos": "n8n, Telegram API, DevOps, Automation",
             "technosLabel": "CORE_TECH:"
+        },
+        {
+            "title": "Система: n8n Автопроспект",
+            "desc": "Комплексный воркфлоу для автопроспектинга, объединяющий сбор таргетных данных (Apify), структурированное хранение (BaseRow/Google Sheets) и генерацию персонализированных обращений через OpenAI API.",
+            "technos": "n8n, Apify, BaseRow, OpenAI API",
+            "technosLabel": "CORE_TECH:"
         }
     ],
     "contact": ">> [TARGET_COMMS]:",
@@ -83,7 +89,8 @@
             "2": { "technosLabel": "Технологии:" },
             "3": { "technosLabel": "Технологии:" },
             "4": { "technosLabel": "Технологии:" },
-            "5": { "technosLabel": "Технологии:" }
+            "5": { "technosLabel": "Технологии:" },
+            "6": { "technosLabel": "Технологии:" }
         },
         "modal": {
             "status": "Статус:",

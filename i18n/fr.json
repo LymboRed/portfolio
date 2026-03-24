@@ -46,6 +46,12 @@
             "desc": "Mise en place d'un système de surveillance centralisé sur n8n avec alertes Telegram automatisées pour une gestion DevOps proactive.",
             "technos": "n8n, Telegram API, DevOps, Automation",
             "technosLabel": "CORE_TECH :"
+        },
+        {
+            "title": "Système : AutoProspect n8n",
+            "desc": "Workflow complet d'autoprospection orchestrant l'extraction de données (Apify), le stockage structuré (BaseRow/Google Sheets) et la génération de prises de contact personnalisées via l'API OpenAI.",
+            "technos": "n8n, Apify, BaseRow, OpenAI API",
+            "technosLabel": "CORE_TECH :"
         }
     ],
     "contact": ">> [TARGET_COMMS] :",
@@ -83,7 +89,8 @@
             "2": { "technosLabel": "Technologies :" },
             "3": { "technosLabel": "Technologies :" },
             "4": { "technosLabel": "Technologies :" },
-            "5": { "technosLabel": "Technologies :" }
+            "5": { "technosLabel": "Technologies :" },
+            "6": { "technosLabel": "Technologies :" }
         },
         "modal": {
             "status": "Statut :",

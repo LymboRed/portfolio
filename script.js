@@ -1009,7 +1009,8 @@ const ProjectManager = {
         "https://github.com/LymboRed", // Data Saver
         "https://github.com/LymboRed/portfolio/blob/main/README.md", // Portfolio
         "https://github.com/LymboRed",  // Task-App
-        "https://github.com/LymboRed/n8n-workflows/blob/main/CentraldErreurTemplate.json" // n8n Monitoring
+        "https://github.com/LymboRed/n8n-workflows/blob/main/CentraldErreurTemplate.json", // n8n Monitoring
+        "https://github.com/LymboRed/Auto-Prospection-n8n" // AutoProspect n8n
     ],
 
     projectVideos: {
@@ -1018,7 +1019,8 @@ const ProjectManager = {
     },
 
     projectImages: {
-        0: 'assets/pokemonOS.png'
+        0: 'assets/pokemonOS.png',
+        6: 'assets/autoprospect_n8n.png'
     },
 
     init() {
