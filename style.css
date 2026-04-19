@@ -608,9 +608,10 @@ h1::before {
 .projects-carousel {
     flex: 1;
     overflow-y: auto;
-    padding-right: 15px; /* Slightly more space */
-    max-height: 800px; /* Fixed height to enable scrollbar */
-    border-right: 1px solid rgba(0, 255, 65, 0.05); /* Visual separator */
+    padding-right: 15px;
+    height: auto;
+    max-height: 100%; /* Use all available space in parent */
+    border-right: 1px solid rgba(0, 255, 65, 0.05);
 }
 
 /* Custom scrollbar for projects */
