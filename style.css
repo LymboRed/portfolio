@@ -594,20 +594,29 @@ h1::before {
 
 .main-container {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: start;
 }
 
 #projects {
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .projects-carousel {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+    overflow-y: scroll;
+    padding-right: 15px;
+    max-height: calc(100vh - 200px);
+}
+
+/* Force project cards to be visible inside scrollable carousel
+   AOS cannot detect elements inside a scrollable container */
+.projects-carousel .project-card[data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: all 0.3s ease !important;
 }
 
 /* Custom scrollbar for projects */
@@ -624,9 +633,20 @@ h1::before {
     box-shadow: 0 0 10px var(--accent-color);
 }
 
+@media (min-width: 993px) {
+    .right-container {
+        position: sticky;
+        top: 100px;
+    }
+}
+
 @media (max-width: 992px) {
     .main-container {
         grid-template-columns: 1fr;
+    }
+    
+    .right-container {
+        height: 600px; /* Fallback for mobile if needed, or let it flow */
     }
 }
 
