@@ -603,14 +603,14 @@ h1::before {
     height: 100%;
     display: flex;
     flex-direction: column;
+    min-height: 0; /* Crucial to allow flex children to scroll */
 }
 
 .projects-carousel {
     flex: 1;
     overflow-y: auto;
     padding-right: 15px;
-    height: auto;
-    max-height: 100%; /* Use all available space in parent */
+    min-height: 0; /* Necessary for flex overflow */
     border-right: 1px solid rgba(0, 255, 65, 0.05);
 }
 
@@ -633,6 +633,9 @@ h1::before {
         position: sticky;
         top: 100px; /* Header height + buffer */
         height: calc(100vh - 120px);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
     }
 }
 
