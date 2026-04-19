@@ -1002,6 +1002,9 @@ const ProjectManager = {
     detailsContainer: document.getElementById('modal-project-details'),
     titleContainer: document.getElementById('modal-project-title'),
     actionBtn: document.getElementById('modal-action-btn'),
+    zoomModal: document.getElementById('image-zoom-modal'),
+    zoomedImage: document.getElementById('zoomed-image'),
+    closeZoomBtn: document.getElementById('close-zoom-modal'),
     
     projectLinks: [
         "https://github.com/LymboRed/PokemonOS/blob/main/README.md", // Pokémon
@@ -1010,7 +1013,8 @@ const ProjectManager = {
         "https://github.com/LymboRed/portfolio/blob/main/README.md", // Portfolio
         "https://github.com/LymboRed",  // Task-App
         "https://github.com/LymboRed/n8n-workflows/blob/main/CentraldErreurTemplate.json", // n8n Monitoring
-        "https://github.com/LymboRed/Auto-Prospection-n8n" // AutoProspect n8n
+        "https://github.com/LymboRed/Auto-Prospection-n8n", // AutoProspect n8n
+        "https://github.com/LymboRed" // Imagem (n8n + Gemini)
     ],
 
     projectVideos: {
@@ -1020,7 +1024,8 @@ const ProjectManager = {
 
     projectImages: {
         0: 'assets/pokemonOS.png',
-        6: 'assets/autoprospect_n8n.png'
+        6: 'assets/autoprospect_n8n.png',
+        7: 'assets/imagem_workflow.png'
     },
 
     init() {
@@ -1041,6 +1046,33 @@ const ProjectManager = {
                 if (e.target === this.modal) this.closeModal();
             });
         }
+
+        // Zoom Modal listeners
+        if (this.closeZoomBtn) {
+            this.closeZoomBtn.addEventListener('click', () => this.closeZoom());
+        }
+        if (this.zoomModal) {
+            this.zoomModal.addEventListener('click', (e) => {
+                if (e.target === this.zoomModal) this.closeZoom();
+            });
+        }
+    },
+
+    openZoom(imgSrc) {
+        if (!this.zoomModal || !this.zoomedImage) return;
+        this.zoomedImage.src = imgSrc;
+        this.zoomModal.style.display = 'flex';
+        // Ensure body remains hidden but specifically for the zoom level
+        document.body.style.overflow = 'hidden'; 
+        SoundManager.click();
+    },
+
+    closeZoom() {
+        if (!this.zoomModal) return;
+        this.zoomModal.style.display = 'none';
+        // Keep overflow hidden because project modal is still open
+        document.body.style.overflow = 'hidden'; 
+        SoundManager.click();
     },
 
     openModal(index, card) {
@@ -1097,6 +1129,15 @@ const ProjectManager = {
                 </div>
             </div>
         `;
+
+        // Image zoom handler
+        const imgContainer = this.detailsContainer.querySelector('.project-image-container');
+        if (imgContainer) {
+            imgContainer.addEventListener('click', () => {
+                const img = imgContainer.querySelector('img');
+                if (img) this.openZoom(img.src);
+            });
+        }
 
         this.actionBtn.onclick = () => {
             SoundManager.click();

@@ -52,6 +52,12 @@
             "desc": "Complete auto-prospecting workflow orchestrating targeted data extraction (Apify), structured storage (BaseRow/Google Sheets), and personalized outreach generation via OpenAI's APIs.",
             "technos": "n8n, Apify, BaseRow, OpenAI API",
             "technosLabel": "CORE_TECH:"
+        },
+        {
+            "title": "Module: Imagem (n8n + Gemini)",
+            "desc": "Automated AI pipeline generating marketing images and texts from Baserow data. Telegram validation, Drive/Sheets archiving, and bi-directional FR/EN database sync.",
+            "technos": "n8n, Gemini AI, Telegram Bot, Baserow, Google Sheets",
+            "technosLabel": "CORE_TECH:"
         }
     ],
     "contact": ">> [TARGET_COMMS]:",
@@ -90,7 +96,8 @@
             "3": { "technosLabel": "Technologies:" },
             "4": { "technosLabel": "Technologies:" },
             "5": { "technosLabel": "Technologies:" },
-            "6": { "technosLabel": "Technologies:" }
+            "6": { "technosLabel": "Technologies:" },
+            "7": { "technosLabel": "Technologies:" }
         },
         "modal": {
             "status": "Status:",
