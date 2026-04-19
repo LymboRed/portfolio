@@ -611,6 +611,14 @@ h1::before {
     max-height: calc(100vh - 200px);
 }
 
+/* Force project cards to be visible inside scrollable carousel
+   AOS cannot detect elements inside a scrollable container */
+.projects-carousel .project-card[data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: all 0.3s ease !important;
+}
+
 /* Custom scrollbar for projects */
 .projects-carousel::-webkit-scrollbar {
     width: 6px; /* Slightly wider for visibility */
