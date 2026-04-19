@@ -603,15 +603,12 @@ h1::before {
     height: 100%;
     display: flex;
     flex-direction: column;
-    min-height: 0; /* Crucial to allow flex children to scroll */
 }
 
 .projects-carousel {
-    flex: 1;
-    overflow-y: auto;
+    overflow-y: scroll;
     padding-right: 15px;
-    min-height: 0; /* Necessary for flex overflow */
-    border-right: 1px solid rgba(0, 255, 65, 0.05);
+    max-height: calc(100vh - 200px);
 }
 
 /* Custom scrollbar for projects */
@@ -631,11 +628,7 @@ h1::before {
 @media (min-width: 993px) {
     .right-container {
         position: sticky;
-        top: 100px; /* Header height + buffer */
-        height: calc(100vh - 120px);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
+        top: 100px;
     }
 }
 
